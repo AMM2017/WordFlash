@@ -1,4 +1,4 @@
-platform :ios, '11.1'
+platform :ios, '11.0.1'
 
 target 'WordFlash' do
   use_frameworks!
