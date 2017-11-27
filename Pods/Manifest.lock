@@ -1,0 +1,26 @@
+PODS:
+  - Koloda (4.3.1):
+    - pop (~> 1.0)
+  - paper-onboarding (3.0.0)
+  - pop (1.0.10)
+  - Realm (3.0.2):
+    - Realm/Headers (= 3.0.2)
+  - Realm/Headers (3.0.2)
+  - RealmSwift (3.0.2):
+    - Realm (= 3.0.2)
+
+DEPENDENCIES:
+  - Koloda
+  - paper-onboarding
+  - RealmSwift
+
+SPEC CHECKSUMS:
+  Koloda: 0d39b2aa188ccd1fac48d752acaf9802e683c625
+  paper-onboarding: 9b5628257bffd413f60a8980d438c6c2cbf1f941
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
+  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
+
+PODFILE CHECKSUM: c9a481d37031a84c2840bc8a1a2dcf0c22b2841d
+
+COCOAPODS: 1.3.1
