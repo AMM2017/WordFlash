@@ -10,6 +10,9 @@ import UIKit
 import RealmSwift
 import Koloda
 import paper_onboarding
+import SwiftyJSON
+import Alamofire
+
 
 class ViewController: UIViewController{
     let onboarding = PaperOnboarding(itemsCount: 3)

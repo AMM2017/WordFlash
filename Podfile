@@ -7,6 +7,10 @@ target 'WordFlash' do
   pod 'RealmSwift'
   pod 'Koloda' 
   pod 'paper-onboarding'
+  pod 'SwiftyJSON'
+  pod 'Alamofire-SwiftyJSON'
+  pod 'Alamofire', '~> 4.5'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 
   target 'WordFlashTests' do
     inherit! :search_paths
