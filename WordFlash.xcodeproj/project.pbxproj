@@ -17,6 +17,9 @@
 		FA312F091FCBF37200D55F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA312F071FCBF37200D55F06 /* LaunchScreen.storyboard */; };
 		FA312F141FCBF37200D55F06 /* WordFlashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312F131FCBF37200D55F06 /* WordFlashTests.swift */; };
 		FA312F1F1FCBF37200D55F06 /* WordFlashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312F1E1FCBF37200D55F06 /* WordFlashUITests.swift */; };
+		FAEF66DB1FD1CD610088E29D /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF66DA1FD1CD610088E29D /* MainTableViewController.swift */; };
+		FAEF66DD1FD1D7B30088E29D /* dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = FAEF66DC1FD1D7B30088E29D /* dictionary.json */; };
+		FAEF66DF1FD1D9BD0088E29D /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF66DE1FD1D9BD0088E29D /* Dictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		FA312F1E1FCBF37200D55F06 /* WordFlashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFlashUITests.swift; sourceTree = "<group>"; };
 		FA312F201FCBF37200D55F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAA7F9985D9ECCA1E6F9D321 /* Pods-WordFlashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlashTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlashTests/Pods-WordFlashTests.release.xcconfig"; sourceTree = "<group>"; };
+		FAEF66DA1FD1CD610088E29D /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		FAEF66DC1FD1D7B30088E29D /* dictionary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dictionary.json; path = Dictionary/dictionary.json; sourceTree = "<group>"; };
+		FAEF66DE1FD1D9BD0088E29D /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,12 +143,15 @@
 		FA312EFD1FCBF37200D55F06 /* WordFlash */ = {
 			isa = PBXGroup;
 			children = (
+				FAEF66DC1FD1D7B30088E29D /* dictionary.json */,
 				FA312EFE1FCBF37200D55F06 /* AppDelegate.swift */,
 				FA312F001FCBF37200D55F06 /* ViewController.swift */,
 				FA312F021FCBF37200D55F06 /* Main.storyboard */,
 				FA312F051FCBF37200D55F06 /* Assets.xcassets */,
 				FA312F071FCBF37200D55F06 /* LaunchScreen.storyboard */,
 				FA312F0A1FCBF37200D55F06 /* Info.plist */,
+				FAEF66DA1FD1CD610088E29D /* MainTableViewController.swift */,
+				FAEF66DE1FD1D9BD0088E29D /* Dictionary.swift */,
 			);
 			path = WordFlash;
 			sourceTree = "<group>";
@@ -282,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA312F091FCBF37200D55F06 /* LaunchScreen.storyboard in Resources */,
+				FAEF66DD1FD1D7B30088E29D /* dictionary.json in Resources */,
 				FA312F061FCBF37200D55F06 /* Assets.xcassets in Resources */,
 				FA312F041FCBF37200D55F06 /* Main.storyboard in Resources */,
 			);
@@ -475,6 +485,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA312F011FCBF37200D55F06 /* ViewController.swift in Sources */,
+				FAEF66DF1FD1D9BD0088E29D /* Dictionary.swift in Sources */,
+				FAEF66DB1FD1CD610088E29D /* MainTableViewController.swift in Sources */,
 				FA312EFF1FCBF37200D55F06 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
