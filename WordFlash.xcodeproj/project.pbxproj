@@ -12,11 +12,11 @@
 		9C747EC8F12FE8A99BBD3FC6 /* Pods_WordFlashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C7F67F736BA7D5051F4960 /* Pods_WordFlashUITests.framework */; };
 		FA312EFF1FCBF37200D55F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312EFE1FCBF37200D55F06 /* AppDelegate.swift */; };
 		FA312F011FCBF37200D55F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312F001FCBF37200D55F06 /* ViewController.swift */; };
-		FA312F041FCBF37200D55F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA312F021FCBF37200D55F06 /* Main.storyboard */; };
 		FA312F061FCBF37200D55F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA312F051FCBF37200D55F06 /* Assets.xcassets */; };
 		FA312F091FCBF37200D55F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA312F071FCBF37200D55F06 /* LaunchScreen.storyboard */; };
 		FA312F141FCBF37200D55F06 /* WordFlashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312F131FCBF37200D55F06 /* WordFlashTests.swift */; };
 		FA312F1F1FCBF37200D55F06 /* WordFlashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312F1E1FCBF37200D55F06 /* WordFlashUITests.swift */; };
+		FA376E451FD2A41600C4D1FA /* ShowWordDescroptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA376E441FD2A41600C4D1FA /* ShowWordDescroptionViewController.swift */; };
 		FAEF66DB1FD1CD610088E29D /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF66DA1FD1CD610088E29D /* MainTableViewController.swift */; };
 		FAEF66DD1FD1D7B30088E29D /* dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = FAEF66DC1FD1D7B30088E29D /* dictionary.json */; };
 		FAEF66DF1FD1D9BD0088E29D /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF66DE1FD1D9BD0088E29D /* Dictionary.swift */; };
@@ -51,7 +51,6 @@
 		FA312EFB1FCBF37200D55F06 /* WordFlash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordFlash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA312EFE1FCBF37200D55F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA312F001FCBF37200D55F06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FA312F031FCBF37200D55F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA312F051FCBF37200D55F06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA312F081FCBF37200D55F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA312F0A1FCBF37200D55F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		FA312F1A1FCBF37200D55F06 /* WordFlashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WordFlashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA312F1E1FCBF37200D55F06 /* WordFlashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFlashUITests.swift; sourceTree = "<group>"; };
 		FA312F201FCBF37200D55F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA376E441FD2A41600C4D1FA /* ShowWordDescroptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWordDescroptionViewController.swift; sourceTree = "<group>"; };
 		FAA7F9985D9ECCA1E6F9D321 /* Pods-WordFlashTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlashTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlashTests/Pods-WordFlashTests.release.xcconfig"; sourceTree = "<group>"; };
 		FAEF66DA1FD1CD610088E29D /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		FAEF66DC1FD1D7B30088E29D /* dictionary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dictionary.json; path = Dictionary/dictionary.json; sourceTree = "<group>"; };
@@ -146,12 +146,12 @@
 				FAEF66DC1FD1D7B30088E29D /* dictionary.json */,
 				FA312EFE1FCBF37200D55F06 /* AppDelegate.swift */,
 				FA312F001FCBF37200D55F06 /* ViewController.swift */,
-				FA312F021FCBF37200D55F06 /* Main.storyboard */,
 				FA312F051FCBF37200D55F06 /* Assets.xcassets */,
 				FA312F071FCBF37200D55F06 /* LaunchScreen.storyboard */,
 				FA312F0A1FCBF37200D55F06 /* Info.plist */,
 				FAEF66DA1FD1CD610088E29D /* MainTableViewController.swift */,
 				FAEF66DE1FD1D9BD0088E29D /* Dictionary.swift */,
+				FA376E441FD2A41600C4D1FA /* ShowWordDescroptionViewController.swift */,
 			);
 			path = WordFlash;
 			sourceTree = "<group>";
@@ -293,7 +293,6 @@
 				FA312F091FCBF37200D55F06 /* LaunchScreen.storyboard in Resources */,
 				FAEF66DD1FD1D7B30088E29D /* dictionary.json in Resources */,
 				FA312F061FCBF37200D55F06 /* Assets.xcassets in Resources */,
-				FA312F041FCBF37200D55F06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA312F011FCBF37200D55F06 /* ViewController.swift in Sources */,
+				FA376E451FD2A41600C4D1FA /* ShowWordDescroptionViewController.swift in Sources */,
 				FAEF66DF1FD1D9BD0088E29D /* Dictionary.swift in Sources */,
 				FAEF66DB1FD1CD610088E29D /* MainTableViewController.swift in Sources */,
 				FA312EFF1FCBF37200D55F06 /* AppDelegate.swift in Sources */,
@@ -523,14 +523,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FA312F021FCBF37200D55F06 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA312F031FCBF37200D55F06 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FA312F071FCBF37200D55F06 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

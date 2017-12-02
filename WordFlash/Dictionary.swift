@@ -17,6 +17,7 @@ class Dictionary {
     var arrayOfKeys: [String]?
     
     private init() {
+        // dispatch once
         json = Dictionary.loadJson(from: Dictionary.path)
         arrayOfKeys = Dictionary.getArrayofKeys(from: json).sorted()
     }
@@ -30,7 +31,7 @@ class Dictionary {
     
     private static func getArrayofKeys(from json: JSON) -> Array<String> {
         var arrayOfKeys: Array<String> = []
-        
+        json.dictionary!.
         for (key, _) in json {
             arrayOfKeys.append(key)
         }
@@ -40,17 +41,17 @@ class Dictionary {
     
     //API
     
-    var count: Int? {
-        get {
-            return arrayOfKeys?.count
-        }
+    var count: Int {
+        
+            return arrayOfKeys?.count ?? 0
+        
     }
     
-    func getWord(at index: Int) -> String? {
+    func word(at index: Int) -> String? {
         return arrayOfKeys?[index]
     }
     
-    func getDecrtiption(at word: String) -> String {
+    func decrtiption(at word: String) -> String {
         return json[word].stringValue
     }
     
