@@ -11,18 +11,13 @@ import SwiftyJSON
 
 class MainTableViewController: UITableViewController {
     static let reuse_id = "reuse_id"
-    static let path = "dictionary"
 
-    //let dict = Dictionary.load(from: path)
-    let words = Dictionary.getArrayofKeys(from:
-        Dictionary.load(from: path)
-    )
+    let dictionary = Dictionary.sharedInstance
+    var currentWord = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        print()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,22 +31,31 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return words.count
+        return dictionary.count!
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewController.reuse_id, for: indexPath)
         
-        cell.textLabel?.text = words[indexPath.row]
+        cell.textLabel?.text = dictionary.getWord(at: indexPath.row)
         return cell
-        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentWord = dictionary.getWord(at: indexPath.row)!
+        print("Current word is setup: \(currentWord)")
     }
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
+        if let  destination = segue.destination as? ShowWordDescroptionViewController {
+            print("prepare for segue!")
+            destination.word = currentWord
+            destination.descript = dictionary.getDecrtiption(at: currentWord)
+            print("current word: \(currentWord) desc: \(destination.descript)")
+        }
     }
 
 }
