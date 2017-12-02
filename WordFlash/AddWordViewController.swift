@@ -5,12 +5,13 @@ import RealmSwift
 
 class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let allWords: [String] = []
+    let allWords: [String] = ["door", "pen", "pencil", "pool", "floor", "book", "great"]
     var filteredWords: [String] = []
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        filteredWords = allWords
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -20,16 +21,12 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
-    @IBAction func Back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allWords.count
+        return filteredWords.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -42,15 +39,20 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
                 fatalError("Fatal error")
         }
         
-        cell.configure(word: allWords[indexPath.row])
+        cell.configure(word: filteredWords[indexPath.row])
         cell.setColor(color: .gray)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        word = words[indexPath.row]
-        
+        let word = Word()
+        word.word = filteredWords[indexPath.row]
+        word.defenition = "get from dict"
+        word.isInHistory = true
+        try! realm.write{
+            realm.add(word)
+        }
         
         self.dismiss(animated: true, completion: nil)
     }
