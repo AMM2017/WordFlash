@@ -44,18 +44,15 @@ class MainTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currentWord = dictionary.word(at: indexPath.row)!
-        print("Current word is setup: \(currentWord)")
         performSegue(withIdentifier: "ShowDefinition", sender: self)
     }
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let  destination = segue.destination as? ShowWordDescroptionViewController {
-            print("prepare for segue!")
+        if let destination = segue.destination as? ShowWordDescroptionViewController {
             destination.word = currentWord
             destination.descript = dictionary.decrtiption(at: currentWord)
-            print("current word: \(currentWord) desc: \(destination.descript)")
         }
     }
 

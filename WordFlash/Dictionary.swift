@@ -9,6 +9,14 @@
 import Foundation
 import SwiftyJSON
 
+struct Foo {
+    struct Boo {
+        
+    }
+}
+
+let boo = Foo.Boo()
+
 class Dictionary {
     static let sharedInstance = Dictionary()
     private static let path = "dictionary"
@@ -20,6 +28,7 @@ class Dictionary {
         // dispatch once
         json = Dictionary.loadJson(from: Dictionary.path)
         arrayOfKeys = Dictionary.getArrayofKeys(from: json).sorted()
+        
     }
     
     private static func loadJson(from path: String) -> JSON {
@@ -29,22 +38,17 @@ class Dictionary {
         return JSON(parseJSON: jsonString!)
     }
     
-    private static func getArrayofKeys(from json: JSON) -> Array<String> {
-        var arrayOfKeys: Array<String> = []
-        //json.dictionary!.
-        for (key, _) in json {
-            arrayOfKeys.append(key)
-        }
-        
-        return arrayOfKeys
+    private static func getArrayofKeys(from json: JSON) -> [String] {
+        return json
+            .dictionary!
+            .keys
+            .map { $0 }
     }
     
     //API
     
     var count: Int {
-        
             return arrayOfKeys?.count ?? 0
-        
     }
     
     func word(at index: Int) -> String? {
@@ -54,10 +58,5 @@ class Dictionary {
     func decrtiption(at word: String) -> String {
         return json[word].stringValue
     }
-    
-    
-    
-    
-    
     
 }
