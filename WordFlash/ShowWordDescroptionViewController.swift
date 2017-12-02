@@ -13,7 +13,8 @@ class ShowWordDescroptionViewController: UIViewController {
     var word = ""
     var descript = ""
     
-    @IBOutlet weak var wordLabel: UITextField!
+    
+    @IBOutlet weak var wordText: UITextView!
     @IBOutlet weak var descrTextField: UITextView!
     
     override func viewDidLoad() {
@@ -23,7 +24,7 @@ class ShowWordDescroptionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        wordLabel.text = word
+        wordText.text = word
         descrTextField.text = descript
     }
     @IBAction func buttonPressed(_ sender: Any) {

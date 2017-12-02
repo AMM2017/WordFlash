@@ -10,6 +10,7 @@
 		3290D55B0AC3AC0B36FF8E57 /* Pods_WordFlash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D4C52252BD884747FDD3C3 /* Pods_WordFlash.framework */; };
 		6DC181E176B3A556F44FC13C /* Pods_WordFlashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0E1FD8633069262A49A21A /* Pods_WordFlashTests.framework */; };
 		9C747EC8F12FE8A99BBD3FC6 /* Pods_WordFlashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C7F67F736BA7D5051F4960 /* Pods_WordFlashUITests.framework */; };
+		AE57924A1FD2C93300B3A6DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE5792491FD2C93300B3A6DA /* Main.storyboard */; };
 		FA312EFF1FCBF37200D55F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312EFE1FCBF37200D55F06 /* AppDelegate.swift */; };
 		FA312F011FCBF37200D55F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312F001FCBF37200D55F06 /* ViewController.swift */; };
 		FA312F061FCBF37200D55F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA312F051FCBF37200D55F06 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		75C7F67F736BA7D5051F4960 /* Pods_WordFlashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WordFlashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0E1FD8633069262A49A21A /* Pods_WordFlashTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WordFlashTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F74B4CF15969D4F09E3915E /* Pods-WordFlash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlash/Pods-WordFlash.debug.xcconfig"; sourceTree = "<group>"; };
+		AE5792491FD2C93300B3A6DA /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B9B64CC5220BF914D4D043C9 /* Pods-WordFlashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlashUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlashUITests/Pods-WordFlashUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4990BCF66A46C2C5F7B5034 /* Pods-WordFlashUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlashUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlashUITests/Pods-WordFlashUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E858FDFAA37703008D6F4B34 /* Pods-WordFlash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlash.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlash/Pods-WordFlash.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				FAEF66DA1FD1CD610088E29D /* MainTableViewController.swift */,
 				FAEF66DE1FD1D9BD0088E29D /* Dictionary.swift */,
 				FA376E441FD2A41600C4D1FA /* ShowWordDescroptionViewController.swift */,
+				AE5792491FD2C93300B3A6DA /* Main.storyboard */,
 			);
 			path = WordFlash;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				FA312F091FCBF37200D55F06 /* LaunchScreen.storyboard in Resources */,
 				FAEF66DD1FD1D7B30088E29D /* dictionary.json in Resources */,
 				FA312F061FCBF37200D55F06 /* Assets.xcassets in Resources */,
+				AE57924A1FD2C93300B3A6DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +652,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WordFlash/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com..WordFlash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -663,6 +668,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WordFlash/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com..WordFlash;
 				PRODUCT_NAME = "$(TARGET_NAME)";

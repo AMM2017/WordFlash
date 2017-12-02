@@ -31,20 +31,21 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dictionary.count!
+        return dictionary.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewController.reuse_id, for: indexPath)
         
-        cell.textLabel?.text = dictionary.getWord(at: indexPath.row)
+        cell.textLabel?.text = dictionary.word(at: indexPath.row)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        currentWord = dictionary.getWord(at: indexPath.row)!
+        currentWord = dictionary.word(at: indexPath.row)!
         print("Current word is setup: \(currentWord)")
+        performSegue(withIdentifier: "ShowDefinition", sender: self)
     }
 
     // MARK: - Navigation
@@ -53,7 +54,7 @@ class MainTableViewController: UITableViewController {
         if let  destination = segue.destination as? ShowWordDescroptionViewController {
             print("prepare for segue!")
             destination.word = currentWord
-            destination.descript = dictionary.getDecrtiption(at: currentWord)
+            destination.descript = dictionary.decrtiption(at: currentWord)
             print("current word: \(currentWord) desc: \(destination.descript)")
         }
     }

@@ -31,7 +31,7 @@ class Dictionary {
     
     private static func getArrayofKeys(from json: JSON) -> Array<String> {
         var arrayOfKeys: Array<String> = []
-        json.dictionary!.
+        //json.dictionary!.
         for (key, _) in json {
             arrayOfKeys.append(key)
         }
