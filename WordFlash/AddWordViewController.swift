@@ -51,11 +51,12 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
         word.word = filteredWords[indexPath.row]
         word.defenition = "get from dict"
         word.isInHistory = true
-        try! realm.write{
-            realm.add(word)
+        let sameWord = realm.object(ofType: Word.self, forPrimaryKey: word.word)
+        if sameWord == nil {
+            try? realm.write { realm.add(word) }
+            self.dismiss(animated: true, completion: nil)
         }
-        
-        self.dismiss(animated: true, completion: nil)
+       
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
