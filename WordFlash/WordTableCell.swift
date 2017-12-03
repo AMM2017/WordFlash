@@ -1,4 +1,3 @@
-
 import UIKit
 
 class WordTableCell: UITableViewCell{
@@ -6,11 +5,11 @@ class WordTableCell: UITableViewCell{
     @IBOutlet weak var WordLabel: UILabel!
     public static let reuseId = "WordTableCell_reuseId"
     
-    public func setLabel(word:String) {
+    public func set(word:String) {
         WordLabel.text = word
     }
     
-    public func setColor(color: UIColor) {
+    public func set(color: UIColor) {
         self.backgroundColor = color
     }
     

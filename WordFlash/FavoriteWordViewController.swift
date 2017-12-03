@@ -1,4 +1,3 @@
-
 import UIKit
 
 class FavoriteWordViewController: UIViewController {
@@ -22,6 +21,7 @@ class FavoriteWordViewController: UIViewController {
     
     //custom buttons
     @IBAction func starPressed(_ sender: Any) {
+        //changing isFavorite state
         if word!.isFavorite {
             starButton.setTitleColor(.gray, for: .normal)
             try! realm.write {
@@ -37,10 +37,8 @@ class FavoriteWordViewController: UIViewController {
         }
         
     }
+    
     @IBAction func back(_ sender: Any) {
-        try! realm.write{
-            word?.defenition = definition.text!
-        }
         self.dismiss(animated: true, completion: nil)
     }
 }

@@ -13,17 +13,22 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
     var state: State?
     var word: Word?
     var weAreGoingToAdd: Bool = true
+    
     @IBOutlet weak var bar: UINavigationBar!
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var favoButton: UIButton!
     @IBOutlet weak var histButton: UIButton!
+    
+    
+    
     //yep
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if state == .History {
@@ -37,31 +42,38 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
             favoButton.isEnabled = false
             histButton.isEnabled = true
         }
+        //loading words from db
         words = realm.objects(Word.self).filter(NSPredicate(format: state == .History ? "isInHistory == true" : "isFavorite == true"))
         tableView.reloadData()
         self.title = state == .History ? "History" : "Favorite"
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    
+    
     //tableView section
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return words?.count ?? 0
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: WordTableCell.reuseId) as? WordTableCell
             else {
                 fatalError("Fatal error")
         }
-        cell.setLabel(word: words[indexPath.row].word)
-        cell.setColor(color: state == .History ? .yellow : .green)
-        
+        cell.set(word: words[indexPath.row].word)
+        cell.set(color: state == .History ? .yellow : .green)
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         word = words[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
@@ -69,10 +81,14 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
         self.performSegue(withIdentifier: state == .Favorite ? "FavoriteSegue" : "HistorySegue", sender: self)
     }
     
+    
+    
     //custom buttons
+    
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func addWord(_ sender: Any) {
         weAreGoingToAdd = true
         self.performSegue(withIdentifier: "AddWordSegue", sender: self)
@@ -81,6 +97,8 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
         state = state == .History ? .Favorite : .History
         self.viewDidAppear(false)
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if !weAreGoingToAdd {
