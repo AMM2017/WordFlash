@@ -5,9 +5,10 @@ class FavoriteWordViewController: UIViewController {
     
     var word:Word?
     @IBOutlet weak var starButton: UIButton!
-    
-    @IBOutlet weak var definition: UITextView!
+    @IBOutlet weak var definition: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
+    
+    //yep
     override func viewDidLoad() {
         super.viewDidLoad()
         wordLabel.text = word?.word
@@ -19,7 +20,7 @@ class FavoriteWordViewController: UIViewController {
     }
     
     
-    
+    //custom buttons
     @IBAction func starPressed(_ sender: Any) {
         if word!.isFavorite {
             starButton.setTitleColor(.gray, for: .normal)
@@ -36,9 +37,9 @@ class FavoriteWordViewController: UIViewController {
         }
         
     }
-    @IBAction func exit(_ sender: Any) {
+    @IBAction func back(_ sender: Any) {
         try! realm.write{
-            word?.defenition = definition.text
+            word?.defenition = definition.text!
         }
         self.dismiss(animated: true, completion: nil)
     }
