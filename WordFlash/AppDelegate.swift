@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  WordFlash
-//
-//  Created by Alexandr on 26/11/2017.
-//  Copyright © 2017 Alexandr. All rights reserved.
-//
 
 import UIKit
 
