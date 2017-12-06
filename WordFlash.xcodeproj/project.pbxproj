@@ -16,6 +16,9 @@
 		A42C5B991FD2C0B50063D265 /* FavoriteWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B981FD2C0B50063D265 /* FavoriteWordViewController.swift */; };
 		A42C5B9B1FD2C95B0063D265 /* HistoryWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B9A1FD2C95B0063D265 /* HistoryWordViewController.swift */; };
 		A42C5B9D1FD2CD9A0063D265 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B9C1FD2CD9A0063D265 /* AddWordViewController.swift */; };
+		AEB5E12B1FD81B8C00BCF21A /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB5E12A1FD81B8C00BCF21A /* CardView.xib */; };
+		AEB5E12D1FD81B9C00BCF21A /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB5E12C1FD81B9C00BCF21A /* OverlayView.xib */; };
+		AEB5E12F1FD8214200BCF21A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5E12E1FD8214200BCF21A /* CardView.swift */; };
 		FA312EFF1FCBF37200D55F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312EFE1FCBF37200D55F06 /* AppDelegate.swift */; };
 		FA312F011FCBF37200D55F06 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312F001FCBF37200D55F06 /* MainViewController.swift */; };
 		FA312F041FCBF37200D55F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA312F021FCBF37200D55F06 /* Main.storyboard */; };
@@ -54,6 +57,9 @@
 		A42C5B981FD2C0B50063D265 /* FavoriteWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteWordViewController.swift; sourceTree = "<group>"; };
 		A42C5B9A1FD2C95B0063D265 /* HistoryWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWordViewController.swift; sourceTree = "<group>"; };
 		A42C5B9C1FD2CD9A0063D265 /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
+		AEB5E12A1FD81B8C00BCF21A /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		AEB5E12C1FD81B9C00BCF21A /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
+		AEB5E12E1FD8214200BCF21A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B9B64CC5220BF914D4D043C9 /* Pods-WordFlashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlashUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlashUITests/Pods-WordFlashUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4990BCF66A46C2C5F7B5034 /* Pods-WordFlashUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlashUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlashUITests/Pods-WordFlashUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E858FDFAA37703008D6F4B34 /* Pods-WordFlash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlash.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlash/Pods-WordFlash.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +167,9 @@
 				A42C5B981FD2C0B50063D265 /* FavoriteWordViewController.swift */,
 				A42C5B9A1FD2C95B0063D265 /* HistoryWordViewController.swift */,
 				A42C5B9C1FD2CD9A0063D265 /* AddWordViewController.swift */,
+				AEB5E12A1FD81B8C00BCF21A /* CardView.xib */,
+				AEB5E12C1FD81B9C00BCF21A /* OverlayView.xib */,
+				AEB5E12E1FD8214200BCF21A /* CardView.swift */,
 			);
 			path = WordFlash;
 			sourceTree = "<group>";
@@ -301,6 +310,8 @@
 			files = (
 				FA312F091FCBF37200D55F06 /* LaunchScreen.storyboard in Resources */,
 				FA312F061FCBF37200D55F06 /* Assets.xcassets in Resources */,
+				AEB5E12D1FD81B9C00BCF21A /* OverlayView.xib in Resources */,
+				AEB5E12B1FD81B8C00BCF21A /* CardView.xib in Resources */,
 				FA312F041FCBF37200D55F06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA312F011FCBF37200D55F06 /* MainViewController.swift in Sources */,
+				AEB5E12F1FD8214200BCF21A /* CardView.swift in Sources */,
 				A42C5B971FD2BE490063D265 /* WordTableCell.swift in Sources */,
 				A42C5B9D1FD2CD9A0063D265 /* AddWordViewController.swift in Sources */,
 				A42C5B991FD2C0B50063D265 /* FavoriteWordViewController.swift in Sources */,
@@ -669,7 +681,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9JH2U4SKKP;
 				INFOPLIST_FILE = WordFlash/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com..WordFlash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -686,7 +698,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9JH2U4SKKP;
 				INFOPLIST_FILE = WordFlash/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com..WordFlash;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -15,13 +15,23 @@ class MainViewController: UIViewController{
     var words:Results<Word>!
     var state:State?
     var weAreGoingToAdd: Bool = true
+    @IBOutlet weak var kolodaView: KolodaView!
     
+    /*fileprivate var dataSource: [UILabel] = {
+     var array: [UILabel] = []
+     for index in 0..<numberOfCards {
+     }
+     return array
+     }()*/
     
     
     //yep
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        kolodaView.dataSource = self
+        kolodaView.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,7 +43,6 @@ class MainViewController: UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
     
     
     //custom buttons
@@ -75,4 +84,32 @@ class MainViewController: UIViewController{
         }
     }
     
+}
+
+// MARK: KolodaViewDelegate
+extension MainViewController: KolodaViewDelegate {
+    func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
+        koloda.reloadData()
+    }
+}
+
+// MARK: KolodaViewDataSource
+extension MainViewController: KolodaViewDataSource {
+    
+    func kolodaNumberOfCards(_ koloda:KolodaView) -> Int {
+        return 5//dataSource.count
+    }
+    
+    func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
+        return .fast
+    }
+    
+    func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
+        return (Bundle.main.loadNibNamed("CardView", owner: self, options: nil)![0] as? UIView)!
+    }
+    
+    /* like or nope
+     func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
+     return Bundle.main.loadNibNamed("OverlayView", owner: self, options: nil)![0] as? OverlayView
+     }*/
 }
