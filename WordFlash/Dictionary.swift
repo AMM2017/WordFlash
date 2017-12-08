@@ -12,6 +12,7 @@ import SwiftyJSON
 class Dictionary {
     private static let jsonFilename = "dictionary"
     static let sharedInstance = Dictionary()
+    
     var json: JSON
     var words: [String]
     

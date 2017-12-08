@@ -7,7 +7,7 @@ import Alamofire
 
 
 //global
-var realm:Realm = try! Realm()
+var realm: Realm = try! Realm()
 
 
 class MainViewController: UIViewController{

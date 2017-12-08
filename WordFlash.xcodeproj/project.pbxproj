@@ -19,6 +19,8 @@
 		A456B5B81FDAC44400421186 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456B5B71FDAC44400421186 /* CardView.swift */; };
 		AEB5E12B1FD81B8C00BCF21A /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB5E12A1FD81B8C00BCF21A /* CardView.xib */; };
 		AEB5E12D1FD81B9C00BCF21A /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB5E12C1FD81B9C00BCF21A /* OverlayView.xib */; };
+		FA023A0E1FDB1BE400FC7EDF /* dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = FA023A0D1FDB1BE400FC7EDF /* dictionary.json */; };
+		FA023A101FDB1BF500FC7EDF /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA023A0F1FDB1BF500FC7EDF /* Dictionary.swift */; };
 		FA312EFF1FCBF37200D55F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312EFE1FCBF37200D55F06 /* AppDelegate.swift */; };
 		FA312F011FCBF37200D55F06 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA312F001FCBF37200D55F06 /* MainViewController.swift */; };
 		FA312F041FCBF37200D55F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA312F021FCBF37200D55F06 /* Main.storyboard */; };
@@ -63,6 +65,8 @@
 		B9B64CC5220BF914D4D043C9 /* Pods-WordFlashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlashUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlashUITests/Pods-WordFlashUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4990BCF66A46C2C5F7B5034 /* Pods-WordFlashUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlashUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlashUITests/Pods-WordFlashUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E858FDFAA37703008D6F4B34 /* Pods-WordFlash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlash.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlash/Pods-WordFlash.release.xcconfig"; sourceTree = "<group>"; };
+		FA023A0D1FDB1BE400FC7EDF /* dictionary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dictionary.json; sourceTree = "<group>"; };
+		FA023A0F1FDB1BF500FC7EDF /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		FA312EFB1FCBF37200D55F06 /* WordFlash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordFlash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA312EFE1FCBF37200D55F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA312F001FCBF37200D55F06 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 		FA312EFD1FCBF37200D55F06 /* WordFlash */ = {
 			isa = PBXGroup;
 			children = (
+				FA023A0D1FDB1BE400FC7EDF /* dictionary.json */,
+				FA023A0F1FDB1BF500FC7EDF /* Dictionary.swift */,
 				FA312EFE1FCBF37200D55F06 /* AppDelegate.swift */,
 				FA312F001FCBF37200D55F06 /* MainViewController.swift */,
 				FA312F021FCBF37200D55F06 /* Main.storyboard */,
@@ -309,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA312F091FCBF37200D55F06 /* LaunchScreen.storyboard in Resources */,
+				FA023A0E1FDB1BE400FC7EDF /* dictionary.json in Resources */,
 				FA312F061FCBF37200D55F06 /* Assets.xcassets in Resources */,
 				AEB5E12D1FD81B9C00BCF21A /* OverlayView.xib in Resources */,
 				AEB5E12B1FD81B8C00BCF21A /* CardView.xib in Resources */,
@@ -504,6 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA312F011FCBF37200D55F06 /* MainViewController.swift in Sources */,
+				FA023A101FDB1BF500FC7EDF /* Dictionary.swift in Sources */,
 				A456B5B81FDAC44400421186 /* CardView.swift in Sources */,
 				A42C5B971FD2BE490063D265 /* WordTableCell.swift in Sources */,
 				A42C5B9D1FD2CD9A0063D265 /* AddWordViewController.swift in Sources */,
