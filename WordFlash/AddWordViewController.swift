@@ -5,8 +5,9 @@ import RealmSwift
 
 class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
-    //fish
-    let allWords: [String] = ["Door", "Pen", "Pencil", "Pool", "Floor", "Book", "Great", "Pottt", "Fgdgd", "Gfgdgs", "Ggsrgrwegwgr", "Qwert"]
+    static let dict: Dictionary = Dictionary.sharedInstance
+    //let allWords: [String] = ["Door", "Pen", "Pencil", "Pool", "Floor", "Book", "Great", "Pottt", "Fgdgd", "Gfgdgs", "Ggsrgrwegwgr", "Qwert"]
+    let allWords: [String] = dict.words
     var alreadyHaveWords: [String]?
     var filteredWords: [String] = []
     @IBOutlet weak var searchBar: UISearchBar!
@@ -57,8 +58,7 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
         //adding word to realm
         let word = Word()
         word.word = filteredWords[indexPath.row]
-        word.defenition = "get from dict"  //todo
-        word.isFavorite = true  //todo false
+        word.defenition = AddWordViewController.dict[word.word]
         if !alreadyHaveWords!.contains(word.word) {
             try? realm.write {
                 realm.add(word)
