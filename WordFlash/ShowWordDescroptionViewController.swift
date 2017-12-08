@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class ShowWordDescroptionViewController: UIViewController {
 
@@ -27,10 +28,7 @@ class ShowWordDescroptionViewController: UIViewController {
         wordText.text = word
         descrTextField.text = descript
     }
-    @IBAction func buttonPressed(_ sender: Any) {
-        dismiss(animated: false, completion: nil)
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

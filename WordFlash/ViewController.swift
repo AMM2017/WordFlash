@@ -21,7 +21,6 @@ public enum Keys: String {
     , wasLaunchedOnce = "Keys.wasL"
 }
 class ViewController: UIViewController{
-    let onboarding = PaperOnboarding(itemsCount: 3)
     override func viewDidLoad() {
         super.viewDidLoad()
         

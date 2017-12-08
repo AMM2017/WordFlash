@@ -52,7 +52,7 @@ class MainTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ShowWordDescroptionViewController {
             destination.word = currentWord
-            destination.descript = dictionary.decrtiption(at: currentWord)
+            destination.descript = dictionary[currentWord]
         }
     }
 

@@ -9,36 +9,26 @@
 import Foundation
 import SwiftyJSON
 
-struct Foo {
-    struct Boo {
-        
-    }
-}
-
-let boo = Foo.Boo()
-
 class Dictionary {
-    static let sharedInstance = Dictionary()
     private static let path = "dictionary"
+    static let sharedInstance = Dictionary()
     
     var json: JSON
-    var arrayOfKeys: [String]?
+    var words: [String]
     
     private init() {
-        // dispatch once
         json = Dictionary.loadJson(from: Dictionary.path)
-        arrayOfKeys = Dictionary.getArrayofKeys(from: json).sorted()
-        
+        words = Dictionary.allWords(from: json).sorted()
     }
     
     private static func loadJson(from path: String) -> JSON {
-        let path = Bundle.main.path(forResource: path, ofType: "json")!
-        let jsonString = try? String(contentsOfFile: path, encoding: String.Encoding.utf8)
+        let jsonPath = Bundle.main.path(forResource: path, ofType: "json")!
+        let jsonString = try? String(contentsOfFile: jsonPath, encoding: String.Encoding.utf8)
         
         return JSON(parseJSON: jsonString!)
     }
     
-    private static func getArrayofKeys(from json: JSON) -> [String] {
+    private static func allWords(from json: JSON) -> [String] {
         return json
             .dictionary!
             .keys
@@ -48,15 +38,18 @@ class Dictionary {
     //API
     
     var count: Int {
-            return arrayOfKeys?.count ?? 0
+        return words.count
     }
     
     func word(at index: Int) -> String? {
-        return arrayOfKeys?[index]
+        return words[index]
     }
     
-    func decrtiption(at word: String) -> String {
+    subscript(word: String) -> String {
         return json[word].stringValue
     }
     
+    /*func decrtiption(of word: String) -> String {
+        return json[word].stringValue
+    }*/
 }
