@@ -21,6 +21,7 @@
 		FAEF66DB1FD1CD610088E29D /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF66DA1FD1CD610088E29D /* MainTableViewController.swift */; };
 		FAEF66DD1FD1D7B30088E29D /* dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = FAEF66DC1FD1D7B30088E29D /* dictionary.json */; };
 		FAEF66DF1FD1D9BD0088E29D /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEF66DE1FD1D9BD0088E29D /* Dictionary.swift */; };
+		FAEFEB3C1FDACB0E00C4696C /* new.json in Resources */ = {isa = PBXBuildFile; fileRef = FAEFEB3B1FDACB0E00C4696C /* new.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		FAEF66DA1FD1CD610088E29D /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		FAEF66DC1FD1D7B30088E29D /* dictionary.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = dictionary.json; path = Dictionary/dictionary.json; sourceTree = "<group>"; };
 		FAEF66DE1FD1D9BD0088E29D /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		FAEFEB3B1FDACB0E00C4696C /* new.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = new.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				FAEF66DE1FD1D9BD0088E29D /* Dictionary.swift */,
 				FA376E441FD2A41600C4D1FA /* ShowWordDescroptionViewController.swift */,
 				AE5792491FD2C93300B3A6DA /* Main.storyboard */,
+				FAEFEB3B1FDACB0E00C4696C /* new.json */,
 			);
 			path = WordFlash;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				FA312F091FCBF37200D55F06 /* LaunchScreen.storyboard in Resources */,
 				FAEF66DD1FD1D7B30088E29D /* dictionary.json in Resources */,
 				FA312F061FCBF37200D55F06 /* Assets.xcassets in Resources */,
+				FAEFEB3C1FDACB0E00C4696C /* new.json in Resources */,
 				AE57924A1FD2C93300B3A6DA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

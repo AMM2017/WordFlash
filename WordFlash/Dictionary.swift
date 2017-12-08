@@ -10,14 +10,13 @@ import Foundation
 import SwiftyJSON
 
 class Dictionary {
-    private static let path = "dictionary"
+    private static let jsonFilename = "dictionary"
     static let sharedInstance = Dictionary()
-    
     var json: JSON
     var words: [String]
     
     private init() {
-        json = Dictionary.loadJson(from: Dictionary.path)
+        json = Dictionary.loadJson(from: Dictionary.jsonFilename)
         words = Dictionary.allWords(from: json).sorted()
     }
     
@@ -26,6 +25,16 @@ class Dictionary {
         let jsonString = try? String(contentsOfFile: jsonPath, encoding: String.Encoding.utf8)
         
         return JSON(parseJSON: jsonString!)
+    }
+    
+    private static func write(_ json: JSON, to path: String) {
+        let jsonPath = Bundle.main.path(forResource: path, ofType: "json")!
+        let str = json.description
+        let data = str.data(using: String.Encoding.utf8)!
+        
+        if let file = FileHandle(forWritingAtPath: jsonPath) {
+            file.write(data)
+        }
     }
     
     private static func allWords(from json: JSON) -> [String] {
@@ -48,8 +57,4 @@ class Dictionary {
     subscript(word: String) -> String {
         return json[word].stringValue
     }
-    
-    /*func decrtiption(of word: String) -> String {
-        return json[word].stringValue
-    }*/
 }
