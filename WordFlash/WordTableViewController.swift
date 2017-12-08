@@ -43,7 +43,7 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
             histButton.isEnabled = true
         }
         //loading words from db
-        words = realm.objects(Word.self).filter(NSPredicate(format: state == .History ? "isInHistory == true" : "isFavorite == true"))
+        words = realm.objects(Word.self).filter(NSPredicate(format: state == .History ? "inHistory == true" : "isFavorite == true"))
         tableView.reloadData()
         self.title = state == .History ? "History" : "Favorite"
     }

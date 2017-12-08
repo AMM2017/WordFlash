@@ -13,16 +13,11 @@ var realm:Realm = try! Realm()
 class MainViewController: UIViewController{
     
     var words:Results<Word>!
+    var shuffledWords:[Word] = []
     var state:State?
     var weAreGoingToAdd: Bool = true
     @IBOutlet weak var kolodaView: KolodaView!
     
-    /*fileprivate var dataSource: [UILabel] = {
-     var array: [UILabel] = []
-     for index in 0..<numberOfCards {
-     }
-     return array
-     }()*/
     
     
     //yep
@@ -37,7 +32,11 @@ class MainViewController: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //loading words from db
-        words = realm.objects(Word.self).filter(NSPredicate(format: "isInHistory == false"))
+        words = realm.objects(Word.self).filter(NSPredicate(format: "inHistory == false"))
+        shuffledWords = words.shuffled()
+        print(shuffledWords.count)
+        kolodaView.resetCurrentCardIndex()
+        kolodaView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,7 +82,6 @@ class MainViewController: UIViewController{
             destination.alreadyHaveWords = alreadyHaveWords
         }
     }
-    
 }
 
 // MARK: KolodaViewDelegate
@@ -97,7 +95,7 @@ extension MainViewController: KolodaViewDelegate {
 extension MainViewController: KolodaViewDataSource {
     
     func kolodaNumberOfCards(_ koloda:KolodaView) -> Int {
-        return 5//dataSource.count
+        return shuffledWords.count
     }
     
     func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
@@ -105,11 +103,50 @@ extension MainViewController: KolodaViewDataSource {
     }
     
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
-        return (Bundle.main.loadNibNamed("CardView", owner: self, options: nil)![0] as? UIView)!
+        let card = CardView()
+        card.wordLabel.text = shuffledWords[index].word
+        return card
+    }
+    
+    func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection){
+        if direction == .left{
+            try? realm.write {
+                shuffledWords[index].remember()
+            }
+        } else if direction == .right {
+            try? realm.write {
+                shuffledWords[index].dontRemember()
+            }
+        }
     }
     
     /* like or nope
      func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
      return Bundle.main.loadNibNamed("OverlayView", owner: self, options: nil)![0] as? OverlayView
      }*/
+}
+
+
+extension MutableCollection where Indices.Iterator.Element == Index {
+    /// Shuffles the contents of this collection.
+    mutating func shuffle() {
+        let c = count
+        guard c > 1 else { return }
+        
+        for (firstUnshuffled , unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
+            let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
+            guard d != 0 else { continue }
+            let i = index(firstUnshuffled, offsetBy: d)
+            self.swapAt(firstUnshuffled, i)
+        }
+    }
+}
+
+extension Sequence {
+    /// Returns an array with the contents of this sequence, shuffled.
+    func shuffled() -> [Iterator.Element] {
+        var result = Array(self)
+        result.shuffle()
+        return result
+    }
 }

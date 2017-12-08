@@ -58,7 +58,6 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
         let word = Word()
         word.word = filteredWords[indexPath.row]
         word.defenition = "get from dict"  //todo
-        word.isFavorite = true  //todo false
         if !alreadyHaveWords!.contains(word.word) {
             try? realm.write {
                 realm.add(word)
