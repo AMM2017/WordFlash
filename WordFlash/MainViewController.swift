@@ -19,6 +19,7 @@ class MainViewController: UIViewController{
     @IBOutlet weak var kolodaView: KolodaView!
     
     
+    @IBOutlet var designView: UIView!
     
     //yep
     
@@ -27,6 +28,9 @@ class MainViewController: UIViewController{
         
         kolodaView.dataSource = self
         kolodaView.delegate = self
+        designView.backgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
+        kolodaView.backgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -118,6 +122,10 @@ extension MainViewController: KolodaViewDataSource {
                 shuffledWords[index].dontRemember()
             }
         }
+    }
+    
+    func kolodaShouldApplyAppearAnimation(_ koloda: KolodaView) -> Bool {
+        return false
     }
     
     /* like or nope
