@@ -17,6 +17,7 @@
 		A42C5B9B1FD2C95B0063D265 /* HistoryWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B9A1FD2C95B0063D265 /* HistoryWordViewController.swift */; };
 		A42C5B9D1FD2CD9A0063D265 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B9C1FD2CD9A0063D265 /* AddWordViewController.swift */; };
 		A456B5B81FDAC44400421186 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456B5B71FDAC44400421186 /* CardView.swift */; };
+		A4DC2ECD1FDC174400317ED8 /* MutableCollections+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */; };
 		AEB5E12B1FD81B8C00BCF21A /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB5E12A1FD81B8C00BCF21A /* CardView.xib */; };
 		AEB5E12D1FD81B9C00BCF21A /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB5E12C1FD81B9C00BCF21A /* OverlayView.xib */; };
 		FA023A0E1FDB1BE400FC7EDF /* dictionary.json in Resources */ = {isa = PBXBuildFile; fileRef = FA023A0D1FDB1BE400FC7EDF /* dictionary.json */; };
@@ -60,6 +61,7 @@
 		A42C5B9A1FD2C95B0063D265 /* HistoryWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWordViewController.swift; sourceTree = "<group>"; };
 		A42C5B9C1FD2CD9A0063D265 /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		A456B5B71FDAC44400421186 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MutableCollections+Shuffle.swift"; sourceTree = "<group>"; };
 		AEB5E12A1FD81B8C00BCF21A /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		AEB5E12C1FD81B9C00BCF21A /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 		B9B64CC5220BF914D4D043C9 /* Pods-WordFlashUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlashUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlashUITests/Pods-WordFlashUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				AEB5E12A1FD81B8C00BCF21A /* CardView.xib */,
 				AEB5E12C1FD81B9C00BCF21A /* OverlayView.xib */,
 				A456B5B71FDAC44400421186 /* CardView.swift */,
+				A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */,
 			);
 			path = WordFlash;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				A42C5B9D1FD2CD9A0063D265 /* AddWordViewController.swift in Sources */,
 				A42C5B991FD2C0B50063D265 /* FavoriteWordViewController.swift in Sources */,
 				A42C5B931FD2BDA90063D265 /* WordTableViewController.swift in Sources */,
+				A4DC2ECD1FDC174400317ED8 /* MutableCollections+Shuffle.swift in Sources */,
 				FA312EFF1FCBF37200D55F06 /* AppDelegate.swift in Sources */,
 				A42C5B9B1FD2C95B0063D265 /* HistoryWordViewController.swift in Sources */,
 				A42C5B951FD2BE3A0063D265 /* WordModel.swift in Sources */,
