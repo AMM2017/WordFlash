@@ -126,7 +126,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-XJ-Cop">
                                 <rect key="frame" x="248" y="608" width="89" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Favo"/>
+                                <state key="normal" title="Favo">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="showFavorite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p8x-bM-ZDB"/>
                                 </connections>

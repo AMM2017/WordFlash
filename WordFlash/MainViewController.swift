@@ -146,4 +146,18 @@ extension MainViewController: StarPressedDelegate {
 }
 
 
+//MARK: dictionary random n
+private func getRandomWords(on count: Int) -> [Word]
+{
+    let allWords = Dictionary.sharedInstance.words
+    var res: Set<Word> = []
+    while (res.count < count) {
+        let word = Word()
+        word.word = allWords[Int(arc4random_uniform(UInt32(allWords.count)))]
+        word.defenition = Dictionary.sharedInstance[word.word]
+        res.insert(word)
+    }
+    return Array(res)
+}
+
 
