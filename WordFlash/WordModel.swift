@@ -5,6 +5,7 @@ class Word: Object {
     @objc dynamic public var defenition = ""
     @objc dynamic public var inHistory:Bool = false
     @objc dynamic public var isFavorite:Bool = false
+    @objc dynamic public var isAddedByUser:Bool = false
     @objc dynamic public var streak = 0
     
     func remember() {
@@ -16,6 +17,10 @@ class Word: Object {
     
     func dontRemember() {
         streak = 0
+    }
+    
+    func changeFavoriteState() {
+        isFavorite = !isFavorite
     }
     
     override static func primaryKey() -> String? {

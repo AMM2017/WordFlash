@@ -18,7 +18,8 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var favoButton: UIButton!
     @IBOutlet weak var histButton: UIButton!
-    
+    @IBOutlet var designView: UIView!
+    //img@3x
     
     
     //yep
@@ -27,18 +28,21 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        designView.backgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
+        tableView.sectionIndexBackgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if state == .History {
-            histButton.backgroundColor = .green
-            favoButton.backgroundColor = .white
+            histButton.setImage(#imageLiteral(resourceName: "histline"), for: .normal)
+            favoButton.setImage(#imageLiteral(resourceName: "defstar"), for: .normal)
             histButton.isEnabled = false
             favoButton.isEnabled = true
         } else {
-            favoButton.backgroundColor = .yellow
-            histButton.backgroundColor = .white
+            favoButton.setImage(#imageLiteral(resourceName: "favstar"), for: .normal)
+            histButton.setImage(#imageLiteral(resourceName: "defline"), for: .normal)
             favoButton.isEnabled = false
             histButton.isEnabled = true
         }

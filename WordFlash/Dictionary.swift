@@ -18,7 +18,7 @@ class Dictionary {
     
     private init() {
         json = Dictionary.loadJson(from: Dictionary.jsonFilename)
-        words = Dictionary.allWords(from: json).sorted()
+        words = Dictionary.allWords(from: json)//.sorted()
     }
     
     private static func loadJson(from path: String) -> JSON {

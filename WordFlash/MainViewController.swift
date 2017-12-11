@@ -12,7 +12,7 @@ var realm: Realm = try! Realm()
 
 class MainViewController: UIViewController{
     
-    var words:Results<Word>!
+    var words:[Word] = []
     var shuffledWords:[Word] = []
     var state:State?
     var weAreGoingToAdd: Bool = true
@@ -21,7 +21,7 @@ class MainViewController: UIViewController{
     
     @IBOutlet var designView: UIView!
     
-    //yep
+    //MARK: ViewController stuff
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +36,8 @@ class MainViewController: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //loading words from db
-        words = realm.objects(Word.self).filter(NSPredicate(format: "inHistory == false"))
-        shuffledWords = words.shuffled()
+        words = realm.objects(Word.self).filter(NSPredicate(format: "inHistory == false")).map{$0}
+        shuffledWords = (words /*+ Dictionary.sharedInstance.get*/).shuffled()
         print(shuffledWords.count)
         kolodaView.resetCurrentCardIndex()
         kolodaView.reloadData()
@@ -48,7 +48,7 @@ class MainViewController: UIViewController{
     }
     
     
-    //custom buttons
+    //MARK: custom buttons stuff
     
     @IBAction func addWord(_ sender: Any) {
         weAreGoingToAdd = true
@@ -108,7 +108,8 @@ extension MainViewController: KolodaViewDataSource {
     
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
         let card = CardView()
-        card.wordLabel.text = shuffledWords[index].word
+        card.delegate = self
+        card.construct(for: shuffledWords[index])
         return card
     }
     
@@ -135,26 +136,14 @@ extension MainViewController: KolodaViewDataSource {
 }
 
 
-extension MutableCollection where Indices.Iterator.Element == Index {
-    /// Shuffles the contents of this collection.
-    mutating func shuffle() {
-        let c = count
-        guard c > 1 else { return }
-        
-        for (firstUnshuffled , unshuffledCount) in zip(indices, stride(from: c, to: 1, by: -1)) {
-            let d: IndexDistance = numericCast(arc4random_uniform(numericCast(unshuffledCount)))
-            guard d != 0 else { continue }
-            let i = index(firstUnshuffled, offsetBy: d)
-            self.swapAt(firstUnshuffled, i)
+//MARK: star pressed delegate
+extension MainViewController: StarPressedDelegate {
+    func starPressed(for word:String) {
+        try! realm.write{
+            realm.object(ofType: Word.self, forPrimaryKey: word)?.changeFavoriteState()
         }
     }
 }
 
-extension Sequence {
-    /// Returns an array with the contents of this sequence, shuffled.
-    func shuffled() -> [Iterator.Element] {
-        var result = Array(self)
-        result.shuffle()
-        return result
-    }
-}
+
+
