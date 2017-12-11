@@ -36,8 +36,8 @@ class MainViewController: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //loading words from db
-        words = realm.objects(Word.self).filter(NSPredicate(format: "inHistory == false")).map{$0}
-        shuffledWords = (words /*+ Dictionary.sharedInstance.get*/).shuffled()
+        words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
+        shuffledWords = (words + getRandomWords(on: 10)).shuffled()
         print(shuffledWords.count)
         kolodaView.resetCurrentCardIndex()
         kolodaView.reloadData()
@@ -91,6 +91,7 @@ class MainViewController: UIViewController{
 // MARK: KolodaViewDelegate
 extension MainViewController: KolodaViewDelegate {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
+        shuffledWords = (words + getRandomWords(on: 10)).shuffled()
         koloda.reloadData()
     }
 }
@@ -140,7 +141,17 @@ extension MainViewController: KolodaViewDataSource {
 extension MainViewController: StarPressedDelegate {
     func starPressed(for word:String) {
         try! realm.write{
-            realm.object(ofType: Word.self, forPrimaryKey: word)?.changeFavoriteState()
+            if let model = realm.object(ofType: Word.self, forPrimaryKey: word){
+                model.changeFavoriteState()
+            }
+            else {
+                let model = Word()
+                model.word = word
+                model.definition = Dictionary.sharedInstance[word]
+                model.isAddedByUser = false
+                model.isFavorite = true
+                realm.add(model)
+            }
         }
     }
 }
@@ -154,7 +165,8 @@ private func getRandomWords(on count: Int) -> [Word]
     while (res.count < count) {
         let word = Word()
         word.word = allWords[Int(arc4random_uniform(UInt32(allWords.count)))]
-        word.defenition = Dictionary.sharedInstance[word.word]
+        word.definition = Dictionary.sharedInstance[word.word]
+        word.isAddedByUser = false
         res.insert(word)
     }
     return Array(res)

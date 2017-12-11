@@ -11,7 +11,7 @@ class FavoriteWordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         wordLabel.text = word?.word
-        definition.text = word?.defenition
+        definition.text = word?.definition
     }
     
     override func viewDidAppear(_ animated: Bool) {

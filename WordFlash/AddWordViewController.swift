@@ -58,7 +58,7 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
         //adding word to realm
         let word = Word()
         word.word = filteredWords[indexPath.row]
-        word.defenition = AddWordViewController.dict[word.word]
+        word.definition = AddWordViewController.dict[word.word]
         if !alreadyHaveWords!.contains(word.word) {
             try? realm.write {
                 realm.add(word)

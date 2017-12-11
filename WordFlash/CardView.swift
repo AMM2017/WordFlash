@@ -51,7 +51,7 @@ class CardView: UIView {
     public func construct(for word:Word) {
         wordLabel.text = word.word
         starButton.tintColor = word.isFavorite ? .yellow : .gray
-        definitionLabel.text = word.defenition
+        definitionLabel.text = word.definition
     }
     
     @IBAction func starPressed(_ sender: Any ) {
