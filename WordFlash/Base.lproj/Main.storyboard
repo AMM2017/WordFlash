@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -105,43 +106,76 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iws-L1-U4K">
-                                <rect key="frame" x="171" y="617" width="32" height="30"/>
+                                <rect key="frame" x="171.5" y="592" width="32" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0t1-gS-DfC"/>
+                                </constraints>
                                 <state key="normal" title="ADD"/>
                                 <connections>
                                     <action selector="addWord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n3a-86-wWG"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8e-ST-3kr" customClass="KolodaView" customModule="Koloda">
-                                <rect key="frame" x="0.0" y="59" width="375" height="520"/>
+                                <rect key="frame" x="37.5" y="70" width="300" height="467"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RE-No-6VM">
-                                <rect key="frame" x="66" y="617" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Hist"/>
-                                <connections>
-                                    <action selector="showHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Smt-QG-Ktf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-XJ-Cop">
-                                <rect key="frame" x="248" y="608" width="89" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Favo">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="showFavorite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p8x-bM-ZDB"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stl-gz-YJZ" userLabel="FavoContainer">
+                                <rect key="frame" x="203.5" y="592" width="171.5" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6s-XJ-Cop">
+                                        <rect key="frame" x="61" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="49z-ZC-THA"/>
+                                            <constraint firstAttribute="width" constant="50" id="bta-1J-Jsy"/>
+                                        </constraints>
+                                        <state key="normal" title="Favo"/>
+                                        <connections>
+                                            <action selector="showFavorite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p8x-bM-ZDB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="b6s-XJ-Cop" firstAttribute="centerY" secondItem="stl-gz-YJZ" secondAttribute="centerY" id="mYR-m2-emF"/>
+                                    <constraint firstItem="b6s-XJ-Cop" firstAttribute="centerX" secondItem="stl-gz-YJZ" secondAttribute="centerX" id="uWG-yd-JIZ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vf2-vg-p02" userLabel="HistContainer">
+                                <rect key="frame" x="0.0" y="592" width="171.5" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RE-No-6VM">
+                                        <rect key="frame" x="61.5" y="0.0" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="LyS-4p-HQm"/>
+                                            <constraint firstAttribute="width" constant="50" id="twS-ei-grM"/>
+                                        </constraints>
+                                        <state key="normal" title="Hist"/>
+                                        <connections>
+                                            <action selector="showHistory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Smt-QG-Ktf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="8RE-No-6VM" firstAttribute="centerX" secondItem="Vf2-vg-p02" secondAttribute="centerX" id="7TI-vS-R7e"/>
+                                    <constraint firstItem="8RE-No-6VM" firstAttribute="centerY" secondItem="Vf2-vg-p02" secondAttribute="centerY" id="Nbt-VB-CnT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="f8e-ST-3kr" secondAttribute="bottom" constant="88" id="6SH-FE-6Ap"/>
-                            <constraint firstItem="f8e-ST-3kr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="K3K-IS-N0c"/>
-                            <constraint firstItem="f8e-ST-3kr" firstAttribute="centerX" secondItem="iws-L1-U4K" secondAttribute="centerX" id="XBF-9j-Jyf"/>
-                            <constraint firstItem="f8e-ST-3kr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YEX-IM-fC0"/>
-                            <constraint firstItem="iws-L1-U4K" firstAttribute="top" secondItem="f8e-ST-3kr" secondAttribute="bottom" constant="38" id="aSQ-v9-2FN"/>
-                            <constraint firstItem="f8e-ST-3kr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="39" id="xFP-I5-L1R"/>
+                            <constraint firstItem="stl-gz-YJZ" firstAttribute="centerY" secondItem="iws-L1-U4K" secondAttribute="centerY" id="7ZQ-t9-yWK"/>
+                            <constraint firstItem="f8e-ST-3kr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="K3K-IS-N0c"/>
+                            <constraint firstItem="Vf2-vg-p02" firstAttribute="centerY" secondItem="iws-L1-U4K" secondAttribute="centerY" id="Q2z-tw-7Xr"/>
+                            <constraint firstItem="f8e-ST-3kr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RrA-dk-qsC"/>
+                            <constraint firstItem="Vf2-vg-p02" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UfV-fN-fGq"/>
+                            <constraint firstItem="iws-L1-U4K" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Us1-pt-iRY"/>
+                            <constraint firstItem="iws-L1-U4K" firstAttribute="leading" secondItem="Vf2-vg-p02" secondAttribute="trailing" id="Z9o-4C-xGa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iws-L1-U4K" secondAttribute="bottom" constant="25" id="ZaR-UM-mzH"/>
+                            <constraint firstItem="stl-gz-YJZ" firstAttribute="height" secondItem="iws-L1-U4K" secondAttribute="height" id="aSK-Ya-BVC"/>
+                            <constraint firstItem="Vf2-vg-p02" firstAttribute="height" secondItem="iws-L1-U4K" secondAttribute="height" id="eez-Of-EhM"/>
+                            <constraint firstItem="stl-gz-YJZ" firstAttribute="leading" secondItem="iws-L1-U4K" secondAttribute="trailing" id="jTu-s8-qjz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="stl-gz-YJZ" secondAttribute="trailing" id="oEb-3u-UnI"/>
+                            <constraint firstItem="f8e-ST-3kr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="qb8-wR-iaD"/>
+                            <constraint firstItem="f8e-ST-3kr" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="uLs-mP-mhP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -319,7 +353,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycl-al-dgp">
-                                <rect key="frame" x="27" y="69" width="320" height="520"/>
+                                <rect key="frame" x="27.5" y="69" width="320" height="520"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSF-uq-hPG">
                                         <rect key="frame" x="130" y="63" width="61.5" height="31.5"/>
@@ -347,7 +381,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0b-8n-vp4">
-                                <rect key="frame" x="166" y="188" width="42" height="20.5"/>
+                                <rect key="frame" x="166.5" y="188" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

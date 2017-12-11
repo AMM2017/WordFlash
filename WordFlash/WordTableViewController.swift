@@ -18,7 +18,7 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var favoButton: UIButton!
     @IBOutlet weak var histButton: UIButton!
-    
+    //img@3x
     
     
     //yep
