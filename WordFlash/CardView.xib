@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,33 +23,37 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Off-7c-13P">
-                    <rect key="frame" x="133" y="127" width="105" height="72"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Off-7c-13P">
+                    <rect key="frame" x="136.5" y="176" width="102.5" height="54"/>
                     <fontDescription key="fontDescription" type="system" pointSize="45"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25S-tX-j3F">
-                    <rect key="frame" x="164" y="207" width="46" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25S-tX-j3F">
+                    <rect key="frame" x="165" y="595" width="44" height="42"/>
                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                     <state key="normal" title="Star"/>
                     <connections>
                         <action selector="starPressed:" destination="-1" eventType="touchUpInside" id="L9H-re-g0Z"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTQ-s1-U63">
-                    <rect key="frame" x="49" y="127" width="277" height="281"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTQ-s1-U63">
+                    <rect key="frame" x="37" y="260" width="300" height="300"/>
+                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Off-7c-13P" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Dg5-LQ-06e"/>
-                <constraint firstItem="Off-7c-13P" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="b0g-I7-Hoa"/>
+                <constraint firstItem="ZTQ-s1-U63" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="5rD-Qi-4W6"/>
+                <constraint firstItem="ZTQ-s1-U63" firstAttribute="centerX" secondItem="25S-tX-j3F" secondAttribute="centerX" id="6IB-Wl-rUI"/>
+                <constraint firstItem="Off-7c-13P" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Neg-On-rcr"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="25S-tX-j3F" secondAttribute="bottom" constant="30" id="aqw-lc-hK8"/>
+                <constraint firstItem="ZTQ-s1-U63" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.45" id="mvE-eO-nRh"/>
+                <constraint firstItem="Off-7c-13P" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="156" id="x8d-0R-DCz"/>
+                <constraint firstItem="ZTQ-s1-U63" firstAttribute="top" secondItem="Off-7c-13P" secondAttribute="bottom" constant="30" id="yv8-Qr-97l"/>
+                <constraint firstItem="ZTQ-s1-U63" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="zxj-uo-nbD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <userDefinedRuntimeAttributes>
