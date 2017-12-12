@@ -30,6 +30,11 @@ class MainViewController: UIViewController{
         kolodaView.delegate = self
         designView.backgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
         kolodaView.backgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
+        words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
+        shuffledWords = (words + getRandomWords(on: 10)).shuffled()
+        print(shuffledWords.count)
+        kolodaView.resetCurrentCardIndex()
+        kolodaView.reloadData()
         
     }
     
@@ -37,10 +42,6 @@ class MainViewController: UIViewController{
         super.viewDidAppear(animated)
         //loading words from db
         words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
-        shuffledWords = (words + getRandomWords(on: 10)).shuffled()
-        print(shuffledWords.count)
-        kolodaView.resetCurrentCardIndex()
-        kolodaView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -92,6 +93,7 @@ class MainViewController: UIViewController{
 extension MainViewController: KolodaViewDelegate {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
         shuffledWords = (words + getRandomWords(on: 10)).shuffled()
+        koloda.resetCurrentCardIndex()
         koloda.reloadData()
     }
 }
