@@ -23,14 +23,13 @@ class FavoriteWordViewController: UIViewController {
     @IBAction func starPressed(_ sender: Any) {
         //changing isFavorite state
         if word!.isFavorite {
-            starButton.setTitleColor(.gray, for: .normal)
+            starButton.setImage(#imageLiteral(resourceName: "smallstar"), for: .normal)
             try! realm.write {
                 word?.isFavorite = false
             }
         }
         else {
-            starButton.setTitleColor(.yellow, for: .normal)
-            //starButton.tintColor = .yellow
+            starButton.setImage(#imageLiteral(resourceName: "smallorstar"), for: .normal)
             try! realm.write {
                 word?.isFavorite = true
             }
