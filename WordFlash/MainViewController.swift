@@ -35,7 +35,6 @@ class MainViewController: UIViewController{
         print(shuffledWords.count)
         kolodaView.resetCurrentCardIndex()
         kolodaView.reloadData()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,15 +86,19 @@ class MainViewController: UIViewController{
             destination.alreadyHaveWords = alreadyHaveWords
         }
     }
+    
+    private func update(_ koloda: KolodaView) {
+        shuffledWords = (words + getRandomWords(on: 10)).shuffled()
+        // koloda.applyAppearAnimationIfNeeded()
+        koloda.resetCurrentCardIndex()
+        koloda.reloadData()
+    }
 }
 
 // MARK: KolodaViewDelegate
 extension MainViewController: KolodaViewDelegate {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-        shuffledWords = (words + getRandomWords(on: 10)).shuffled()
-       // koloda.applyAppearAnimationIfNeeded()
-        koloda.resetCurrentCardIndex()
-        koloda.reloadData()
+        update(koloda)
     }
 }
 

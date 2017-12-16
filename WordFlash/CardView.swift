@@ -51,12 +51,12 @@ class CardView: UIView {
     
     public func construct(for word:Word) {
         wordLabel.text = word.word
-        starButton.tintColor = word.isFavorite ? .yellow : .gray
+        starButton.setImage( word.isFavorite ? #imageLiteral(resourceName: "smallorstar") : #imageLiteral(resourceName: "smallstar"), for: .normal)
         definitionLabel.text = word.definition
     }
     
     @IBAction func starPressed(_ sender: Any ) {
-        starButton.tintColor = starButton.tintColor == .gray ? .yellow : .gray
+        starButton.setImage(starButton.currentImage == #imageLiteral(resourceName: "smallorstar") ? #imageLiteral(resourceName: "smallstar") : #imageLiteral(resourceName: "smallorstar"), for: .normal)
         delegate?.starPressed(for: wordLabel.text!)
     }
     

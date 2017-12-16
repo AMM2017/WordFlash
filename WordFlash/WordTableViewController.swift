@@ -80,7 +80,7 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
                 fatalError("Fatal error")
         }
         cell.set(word: words[indexPath.row].word)
-        cell.set(color: state == .History ? .yellow : .green)
+        cell.set(color: UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0))
         return cell
     }
     

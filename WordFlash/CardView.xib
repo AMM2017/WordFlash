@@ -29,10 +29,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25S-tX-j3F">
-                    <rect key="frame" x="172" y="624" width="30" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Star"/>
+                <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25S-tX-j3F">
+                    <rect key="frame" x="172" y="613" width="30" height="34"/>
                     <connections>
                         <action selector="starPressed:" destination="-1" eventType="touchUpInside" id="L9H-re-g0Z"/>
                     </connections>
@@ -49,7 +47,7 @@
                 <constraint firstItem="ZTQ-s1-U63" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="5rD-Qi-4W6"/>
                 <constraint firstItem="ZTQ-s1-U63" firstAttribute="centerX" secondItem="25S-tX-j3F" secondAttribute="centerX" id="6IB-Wl-rUI"/>
                 <constraint firstItem="Off-7c-13P" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Neg-On-rcr"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="25S-tX-j3F" secondAttribute="bottom" constant="13" id="aqw-lc-hK8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="25S-tX-j3F" secondAttribute="bottom" constant="20" id="aqw-lc-hK8"/>
                 <constraint firstItem="ZTQ-s1-U63" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.45" id="mvE-eO-nRh"/>
                 <constraint firstItem="Off-7c-13P" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="156" id="x8d-0R-DCz"/>
                 <constraint firstItem="ZTQ-s1-U63" firstAttribute="top" secondItem="Off-7c-13P" secondAttribute="bottom" id="yv8-Qr-97l"/>

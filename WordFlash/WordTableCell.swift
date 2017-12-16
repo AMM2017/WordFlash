@@ -13,4 +13,6 @@ class WordTableCell: UITableViewCell{
         self.backgroundColor = color
     }
     
+    
+    
 }
