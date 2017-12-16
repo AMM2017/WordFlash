@@ -93,6 +93,7 @@ class MainViewController: UIViewController{
 extension MainViewController: KolodaViewDelegate {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
         shuffledWords = (words + getRandomWords(on: 10)).shuffled()
+       // koloda.applyAppearAnimationIfNeeded()
         koloda.resetCurrentCardIndex()
         koloda.reloadData()
     }
