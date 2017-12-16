@@ -13,4 +13,7 @@ class WordTableCell: UITableViewCell{
         self.backgroundColor = color
     }
     
+    public func set(fontColor: UIColor) {
+        self.WordLabel.textColor = fontColor
+    }
 }
