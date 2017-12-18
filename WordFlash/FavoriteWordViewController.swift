@@ -6,12 +6,15 @@ class FavoriteWordViewController: UIViewController {
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var definition: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var contentView: UIView!
+    
     
     //yep
     override func viewDidLoad() {
         super.viewDidLoad()
         wordLabel.text = word?.word
-        definition.text = word?.defenition
+        definition.text = word?.definition
+        contentView.layer.borderColor = (UIColor(red:239.0,green:174.0,blue:0.0,alpha:1.0)).cgColor
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -23,14 +26,13 @@ class FavoriteWordViewController: UIViewController {
     @IBAction func starPressed(_ sender: Any) {
         //changing isFavorite state
         if word!.isFavorite {
-            starButton.setTitleColor(.gray, for: .normal)
+            starButton.setImage(#imageLiteral(resourceName: "smallstar"), for: .normal)
             try! realm.write {
                 word?.isFavorite = false
             }
         }
         else {
-            starButton.setTitleColor(.yellow, for: .normal)
-            //starButton.tintColor = .yellow
+            starButton.setImage(#imageLiteral(resourceName: "smallorstar"), for: .normal)
             try! realm.write {
                 word?.isFavorite = true
             }

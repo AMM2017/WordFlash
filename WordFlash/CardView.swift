@@ -40,23 +40,32 @@ class CardView: UIView {
         wordLabel.textColor = UIColor.white
         definitionLabel.isHidden = true
         definitionLabel.textColor = .white
-        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.tapped (_:)))
-        self.contentView.addGestureRecognizer(gesture)
+        let doubletap = UITapGestureRecognizer(target: self, action:  #selector (self.tapped (_:)))
+        doubletap.numberOfTapsRequired = 2
+        self.contentView.addGestureRecognizer(doubletap)
     }
     
     @objc func tapped(_ sender:UITapGestureRecognizer) {
-        definitionLabel.isHidden = !definitionLabel.isHidden
+        flip()
     }
     
     public func construct(for word:Word) {
         wordLabel.text = word.word
-        starButton.tintColor = word.isFavorite ? .yellow : .gray
-        definitionLabel.text = word.defenition
+        starButton.setImage( word.isFavorite ? #imageLiteral(resourceName: "smallorstar") : #imageLiteral(resourceName: "smallstar"), for: .normal)
+        definitionLabel.text = word.definition
     }
     
     @IBAction func starPressed(_ sender: Any ) {
-        starButton.tintColor = starButton.tintColor == .gray ? .yellow : .gray
+        starButton.setImage(starButton.currentImage == #imageLiteral(resourceName: "smallorstar") ? #imageLiteral(resourceName: "smallstar") : #imageLiteral(resourceName: "smallorstar"), for: .normal)
         delegate?.starPressed(for: wordLabel.text!)
+    }
+    
+    @objc func flip() {
+        let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
+        
+        UIView.transition(with: self, duration: 0.5, options: transitionOptions, animations: {
+            self.definitionLabel.isHidden = !self.definitionLabel.isHidden
+        })
     }
 }
 

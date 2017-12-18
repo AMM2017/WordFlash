@@ -17,8 +17,7 @@ class MainViewController: UIViewController{
     var state:State?
     var weAreGoingToAdd: Bool = true
     @IBOutlet weak var kolodaView: KolodaView!
-    
-    
+    @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet var designView: UIView!
     
     //MARK: ViewController stuff
@@ -28,19 +27,20 @@ class MainViewController: UIViewController{
         
         kolodaView.dataSource = self
         kolodaView.delegate = self
-        designView.backgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
         kolodaView.backgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
-        
+        words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
+        shuffledWords = (words + getRandomWords(on: 5)).shuffled()
+        print(shuffledWords.count)
+        kolodaView.resetCurrentCardIndex()
+        kolodaView.reloadData()
+        refreshButton.isHidden = true
+        refreshButton.isEnabled = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //loading words from db
-        words = realm.objects(Word.self).filter(NSPredicate(format: "inHistory == false")).map{$0}
-        shuffledWords = (words /*+ Dictionary.sharedInstance.get*/).shuffled()
-        print(shuffledWords.count)
-        kolodaView.resetCurrentCardIndex()
-        kolodaView.reloadData()
+        words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,6 +67,18 @@ class MainViewController: UIViewController{
         self.performSegue(withIdentifier: "TableSegue", sender: self)
     }
     
+    @IBAction func refresh(_ sender: Any) {
+        UIView.animate(withDuration: 0.5) { () -> Void in
+            self.refreshButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+        }
+        UIView.animate(withDuration: 0.5, delay: 0.45, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+            self.refreshButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 2))
+        }, completion: {(finished:Bool) in
+            self.refreshButton.isHidden = true
+            self.refreshButton.isEnabled = false
+            self.update(self.kolodaView)
+        })
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -86,12 +98,20 @@ class MainViewController: UIViewController{
             destination.alreadyHaveWords = alreadyHaveWords
         }
     }
+    
+    private func update(_ koloda: KolodaView) {
+        shuffledWords = (words + getRandomWords(on: 5)).shuffled()
+        // koloda.applyAppearAnimationIfNeeded()
+        koloda.resetCurrentCardIndex()
+        koloda.reloadData()
+    }
 }
 
 // MARK: KolodaViewDelegate
 extension MainViewController: KolodaViewDelegate {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-        koloda.reloadData()
+        refreshButton.isHidden = false
+        refreshButton.isEnabled = true
     }
 }
 
@@ -126,7 +146,7 @@ extension MainViewController: KolodaViewDataSource {
     }
     
     func kolodaShouldApplyAppearAnimation(_ koloda: KolodaView) -> Bool {
-        return false
+        return true
     }
     
     /* like or nope
@@ -140,10 +160,35 @@ extension MainViewController: KolodaViewDataSource {
 extension MainViewController: StarPressedDelegate {
     func starPressed(for word:String) {
         try! realm.write{
-            realm.object(ofType: Word.self, forPrimaryKey: word)?.changeFavoriteState()
+            if let model = realm.object(ofType: Word.self, forPrimaryKey: word){
+                model.changeFavoriteState()
+            }
+            else {
+                let model = Word()
+                model.word = word
+                model.definition = Dictionary.sharedInstance[word]
+                model.isAddedByUser = false
+                model.isFavorite = true
+                realm.add(model)
+            }
         }
     }
 }
 
+
+//MARK: dictionary random n
+private func getRandomWords(on count: Int) -> [Word]
+{
+    let allWords = Dictionary.sharedInstance.words
+    var res: Set<Word> = []
+    while (res.count < count) {
+        let word = Word()
+        word.word = allWords[Int(arc4random_uniform(UInt32(allWords.count)))]
+        word.definition = Dictionary.sharedInstance[word.word]
+        word.isAddedByUser = false
+        res.insert(word)
+    }
+    return Array(res)
+}
 
 
