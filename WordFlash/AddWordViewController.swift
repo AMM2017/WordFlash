@@ -50,7 +50,8 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
                 fatalError("Fatal error")
         }
         cell.set(word: filteredWords[indexPath.row])
-        cell.set(color: alreadyHaveWords!.contains(cell.WordLabel.text!) ? .yellow : .gray)
+        cell.set(fontColor: alreadyHaveWords!.contains(cell.WordLabel.text!) ? .gray : .white)
+        cell.set(color: UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0))
         return cell
     }
     

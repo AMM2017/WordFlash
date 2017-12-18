@@ -17,6 +17,7 @@
 		A42C5B9B1FD2C95B0063D265 /* HistoryWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B9A1FD2C95B0063D265 /* HistoryWordViewController.swift */; };
 		A42C5B9D1FD2CD9A0063D265 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B9C1FD2CD9A0063D265 /* AddWordViewController.swift */; };
 		A456B5B81FDAC44400421186 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456B5B71FDAC44400421186 /* CardView.swift */; };
+		A4BD85471FE5C026002C0DAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD85461FE5C026002C0DAE /* LoginViewController.swift */; };
 		A4DC2ECD1FDC174400317ED8 /* MutableCollections+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */; };
 		AEB5E12B1FD81B8C00BCF21A /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB5E12A1FD81B8C00BCF21A /* CardView.xib */; };
 		AEB5E12D1FD81B9C00BCF21A /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB5E12C1FD81B9C00BCF21A /* OverlayView.xib */; };
@@ -61,6 +62,7 @@
 		A42C5B9A1FD2C95B0063D265 /* HistoryWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWordViewController.swift; sourceTree = "<group>"; };
 		A42C5B9C1FD2CD9A0063D265 /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		A456B5B71FDAC44400421186 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A4BD85461FE5C026002C0DAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MutableCollections+Shuffle.swift"; sourceTree = "<group>"; };
 		AEB5E12A1FD81B8C00BCF21A /* CardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		AEB5E12C1FD81B9C00BCF21A /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				AEB5E12C1FD81B9C00BCF21A /* OverlayView.xib */,
 				A456B5B71FDAC44400421186 /* CardView.swift */,
 				A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */,
+				A4BD85461FE5C026002C0DAE /* LoginViewController.swift */,
 			);
 			path = WordFlash;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4BD85471FE5C026002C0DAE /* LoginViewController.swift in Sources */,
 				FA312F011FCBF37200D55F06 /* MainViewController.swift in Sources */,
 				FA023A101FDB1BF500FC7EDF /* Dictionary.swift in Sources */,
 				A456B5B81FDAC44400421186 /* CardView.swift in Sources */,

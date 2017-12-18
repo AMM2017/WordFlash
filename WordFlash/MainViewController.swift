@@ -17,8 +17,7 @@ class MainViewController: UIViewController{
     var state:State?
     var weAreGoingToAdd: Bool = true
     @IBOutlet weak var kolodaView: KolodaView!
-    
-    
+    @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet var designView: UIView!
     
     //MARK: ViewController stuff
@@ -28,13 +27,14 @@ class MainViewController: UIViewController{
         
         kolodaView.dataSource = self
         kolodaView.delegate = self
-        designView.backgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
         kolodaView.backgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
         words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
-        shuffledWords = (words + getRandomWords(on: 10)).shuffled()
+        shuffledWords = (words + getRandomWords(on: 5)).shuffled()
         print(shuffledWords.count)
         kolodaView.resetCurrentCardIndex()
         kolodaView.reloadData()
+        refreshButton.isHidden = true
+        refreshButton.isEnabled = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,6 +67,18 @@ class MainViewController: UIViewController{
         self.performSegue(withIdentifier: "TableSegue", sender: self)
     }
     
+    @IBAction func refresh(_ sender: Any) {
+        UIView.animate(withDuration: 0.5) { () -> Void in
+            self.refreshButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+        }
+        UIView.animate(withDuration: 0.5, delay: 0.45, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+            self.refreshButton.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * 2))
+        }, completion: {(finished:Bool) in
+            self.refreshButton.isHidden = true
+            self.refreshButton.isEnabled = false
+            self.update(self.kolodaView)
+        })
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,7 +100,7 @@ class MainViewController: UIViewController{
     }
     
     private func update(_ koloda: KolodaView) {
-        shuffledWords = (words + getRandomWords(on: 10)).shuffled()
+        shuffledWords = (words + getRandomWords(on: 5)).shuffled()
         // koloda.applyAppearAnimationIfNeeded()
         koloda.resetCurrentCardIndex()
         koloda.reloadData()
@@ -98,7 +110,8 @@ class MainViewController: UIViewController{
 // MARK: KolodaViewDelegate
 extension MainViewController: KolodaViewDelegate {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-        update(koloda)
+        refreshButton.isHidden = false
+        refreshButton.isEnabled = true
     }
 }
 
@@ -133,7 +146,7 @@ extension MainViewController: KolodaViewDataSource {
     }
     
     func kolodaShouldApplyAppearAnimation(_ koloda: KolodaView) -> Bool {
-        return false
+        return true
     }
     
     /* like or nope

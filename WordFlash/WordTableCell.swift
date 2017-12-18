@@ -12,7 +12,9 @@ class WordTableCell: UITableViewCell{
     public func set(color: UIColor) {
         self.backgroundColor = color
     }
-    
-    
-    
+
+    public func set(fontColor: UIColor) {
+        self.WordLabel.textColor = fontColor
+    }
+
 }

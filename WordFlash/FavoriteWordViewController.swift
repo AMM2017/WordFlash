@@ -6,12 +6,15 @@ class FavoriteWordViewController: UIViewController {
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var definition: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var contentView: UIView!
+    
     
     //yep
     override func viewDidLoad() {
         super.viewDidLoad()
         wordLabel.text = word?.word
         definition.text = word?.definition
+        contentView.layer.borderColor = (UIColor(red:239.0,green:174.0,blue:0.0,alpha:1.0)).cgColor
     }
     
     override func viewDidAppear(_ animated: Bool) {
