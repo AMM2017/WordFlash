@@ -13,6 +13,7 @@ protocol StarPressedDelegate {
 }
 
 class CardView: UIView {
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var starButton: UIButton!
@@ -43,6 +44,7 @@ class CardView: UIView {
         let doubletap = UITapGestureRecognizer(target: self, action:  #selector (self.tapped (_:)))
         doubletap.numberOfTapsRequired = 2
         self.contentView.addGestureRecognizer(doubletap)
+        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: definitionLabel.bottomAnchor).isActive = true
     }
     
     @objc func tapped(_ sender:UITapGestureRecognizer) {
