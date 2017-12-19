@@ -14,7 +14,7 @@ class FavoriteWordViewController: UIViewController {
         super.viewDidLoad()
         wordLabel.text = word?.word
         definition.text = word?.definition
-        contentView.layer.borderColor = (UIColor(red:239.0,green:174.0,blue:0.0,alpha:1.0)).cgColor
+        contentView.layer.borderColor = UIColor(red: 239.0 / 255, green: 174.0 / 255, blue: 0, alpha: 1.0).cgColor
         scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: definition.bottomAnchor).isActive = true
     
     }

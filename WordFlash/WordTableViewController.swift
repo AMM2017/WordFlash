@@ -46,13 +46,13 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
             favoButton.setImage(#imageLiteral(resourceName: "defstar"), for: .normal)
             histButton.isEnabled = false
             favoButton.isEnabled = true
-            bar.backgroundColor = UIColor(red: 113.0 / 255, green: 255.0 / 255, blue: 170 / 255, alpha: 1.0)
+            bar.backgroundColor = UIColor(red: 113.0 / 255, green: 255.0 / 255, blue: 170 / 255, alpha: 0.5)
         } else {
             favoButton.setImage(#imageLiteral(resourceName: "favstar"), for: .normal)
             histButton.setImage(#imageLiteral(resourceName: "defline"), for: .normal)
             favoButton.isEnabled = false
             histButton.isEnabled = true
-            bar.backgroundColor = UIColor(red: 239.0 / 255, green: 174.0 / 255, blue: 0, alpha: 1.0)
+            bar.backgroundColor = UIColor(red: 239.0 / 255, green: 174.0 / 255, blue: 0, alpha: 0.5)
         }
         //loading words from db
         words = realm.objects(Word.self).filter(NSPredicate(format: state == .History ? "inHistory == true" : "isFavorite == true"))
