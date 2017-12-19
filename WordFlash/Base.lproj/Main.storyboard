@@ -340,7 +340,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEJ-ah-qbf">
-                                <rect key="frame" x="38" y="200" width="300" height="30"/>
+                                <rect key="frame" x="38" y="221" width="300" height="30"/>
                                 <color key="backgroundColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -356,7 +356,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liN-FX-qEW">
-                                <rect key="frame" x="163.5" y="295" width="49" height="49"/>
+                                <rect key="frame" x="163.5" y="316" width="49" height="49"/>
                                 <state key="normal" image="login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -391,20 +391,38 @@
                                     <segue destination="REJ-Oy-mB0" kind="show" identifier="registerSegue" id="3lu-C0-hB7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDA-HG-b8N">
+                                <rect key="frame" x="37.5" y="109" width="300" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1A-26-nnU">
+                                <rect key="frame" x="37.5" y="190" width="300" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cZD-h7-r4e" firstAttribute="width" secondItem="zlv-XJ-fJ5" secondAttribute="width" id="4kp-fn-PwN"/>
-                            <constraint firstItem="gEJ-ah-qbf" firstAttribute="top" secondItem="uap-52-F3R" secondAttribute="bottom" constant="30" id="6YR-6F-53o"/>
                             <constraint firstItem="uap-52-F3R" firstAttribute="centerX" secondItem="Zka-zx-Q7y" secondAttribute="centerX" id="AuW-b7-g1j"/>
+                            <constraint firstItem="n1A-26-nnU" firstAttribute="top" secondItem="uap-52-F3R" secondAttribute="bottom" constant="20" id="E8L-Aa-tGc"/>
                             <constraint firstItem="wol-VF-8Nz" firstAttribute="centerX" secondItem="Zka-zx-Q7y" secondAttribute="centerX" id="EtI-8m-oFV"/>
+                            <constraint firstItem="gEJ-ah-qbf" firstAttribute="top" secondItem="n1A-26-nnU" secondAttribute="bottom" constant="10" id="GXV-Vu-WYe"/>
+                            <constraint firstItem="uDA-HG-b8N" firstAttribute="centerX" secondItem="Zka-zx-Q7y" secondAttribute="centerX" id="I2p-9D-QoT"/>
                             <constraint firstItem="wol-VF-8Nz" firstAttribute="centerX" secondItem="Zka-zx-Q7y" secondAttribute="centerX" id="JBY-wK-jya"/>
                             <constraint firstItem="liN-FX-qEW" firstAttribute="top" secondItem="gEJ-ah-qbf" secondAttribute="bottom" constant="65" id="KSW-Fh-pbn"/>
                             <constraint firstItem="liN-FX-qEW" firstAttribute="centerX" secondItem="Zka-zx-Q7y" secondAttribute="centerX" id="RG8-gI-KIz"/>
                             <constraint firstItem="Zka-zx-Q7y" firstAttribute="bottom" secondItem="wol-VF-8Nz" secondAttribute="bottom" constant="30" id="UEZ-Jw-8IV"/>
+                            <constraint firstItem="n1A-26-nnU" firstAttribute="centerX" secondItem="Zka-zx-Q7y" secondAttribute="centerX" id="cGE-sf-6w0"/>
+                            <constraint firstItem="n1A-26-nnU" firstAttribute="width" secondItem="zlv-XJ-fJ5" secondAttribute="width" multiplier="0.8" id="ddN-EO-eCs"/>
                             <constraint firstItem="cZD-h7-r4e" firstAttribute="centerX" secondItem="Zka-zx-Q7y" secondAttribute="centerX" id="goZ-bp-wbF"/>
                             <constraint firstItem="cZD-h7-r4e" firstAttribute="top" secondItem="Zka-zx-Q7y" secondAttribute="top" constant="10" id="kCe-AX-1tD"/>
+                            <constraint firstItem="uDA-HG-b8N" firstAttribute="width" secondItem="zlv-XJ-fJ5" secondAttribute="width" multiplier="0.8" id="nHh-2m-xIf"/>
                             <constraint firstItem="gEJ-ah-qbf" firstAttribute="width" secondItem="zlv-XJ-fJ5" secondAttribute="width" multiplier="0.8" id="thC-cK-CQO"/>
+                            <constraint firstItem="uap-52-F3R" firstAttribute="top" secondItem="uDA-HG-b8N" secondAttribute="bottom" constant="10" id="wBj-Gz-6GF"/>
                             <constraint firstItem="gEJ-ah-qbf" firstAttribute="centerX" secondItem="Zka-zx-Q7y" secondAttribute="centerX" id="wOR-sJ-EmZ"/>
                             <constraint firstItem="uap-52-F3R" firstAttribute="width" secondItem="zlv-XJ-fJ5" secondAttribute="width" multiplier="0.8" id="wX9-cd-4ED"/>
                             <constraint firstItem="uap-52-F3R" firstAttribute="top" secondItem="Zka-zx-Q7y" secondAttribute="top" constant="120" id="x1B-jB-cK0"/>
@@ -430,7 +448,7 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SAy-zo-geQ">
                                 <rect key="frame" x="37" y="221" width="300" height="30"/>
-                                <color key="backgroundColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.037604764103889465" green="0.077678091824054718" blue="0.11924172192811966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
@@ -446,7 +464,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e36-8T-cyx">
                                 <rect key="frame" x="37" y="302" width="300" height="30"/>
-                                <color key="backgroundColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.037604764103889465" green="0.077678091824054718" blue="0.11924172192811966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -462,7 +480,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C9Y-fU-VR3">
                                 <rect key="frame" x="37" y="352" width="300" height="30"/>
-                                <color key="backgroundColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.037604764103889465" green="0.077678091824054718" blue="0.11924172192811966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -478,7 +496,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gRe-ou-I8w">
                                 <rect key="frame" x="37.5" y="140" width="300" height="30"/>
-                                <color key="backgroundColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.037604764103889465" green="0.077678091824054718" blue="0.11924172192811966" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="name"/>
