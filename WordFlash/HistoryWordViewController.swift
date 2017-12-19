@@ -6,6 +6,7 @@ class HistoryWordViewController: UIViewController {
     @IBOutlet weak var definition: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var contentViewHist: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     //yep
     
@@ -13,7 +14,8 @@ class HistoryWordViewController: UIViewController {
         super.viewDidLoad()
         wordLabel.text = word?.word
         definition.text = word?.definition
-        contentViewHist.layer.borderColor = (UIColor(red:113.0,green:255.0,blue:170.0,alpha:1.0)).cgColor
+        contentViewHist.layer.borderColor = (UIColor.green).cgColor
+        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: definition.bottomAnchor).isActive = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

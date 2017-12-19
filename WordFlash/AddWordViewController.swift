@@ -10,6 +10,7 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
     let allWords: [String] = dict.words
     var alreadyHaveWords: [String]?
     var filteredWords: [String] = []
+    var charsInSearchBar = 0
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -75,7 +76,13 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //filtering words
-        filteredWords = allWords.filter { $0.capitalized.starts(with: searchText.capitalized) }
+        if (searchText.count > charsInSearchBar) {
+            charsInSearchBar += 1
+            filteredWords = filteredWords.filter { $0.capitalized.starts(with: searchText.capitalized) }
+        } else {
+            charsInSearchBar -= 1
+            filteredWords = allWords.filter { $0.capitalized.starts(with: searchText.capitalized) }
+        }
         tableView.reloadData()
     }
     
