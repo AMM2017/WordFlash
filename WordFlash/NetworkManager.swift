@@ -12,29 +12,37 @@ import SwiftyJSON
 
 class NetworkManager {
     private let urlString = "https://wordflash.herokuapp.com"
+    private let getTokenPath = "/get-token/"
     
-    func token(for user: User) -> User {
-        Alamofire.request(urlString).responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
+    func token(from user: User) -> String? {
+        let parameters: Parameters = [
+            "username": user.username ?? "",
+            "password": user.password ?? ""
+        ]
+        
+        print(parameters)
+        
+        let url = "https://wordflash.herokuapp.com/get-token/"
+        var json: JSON?
+        
+        Alamofire.request(url, method:.post, parameters:parameters).responseJSON { response in
+            switch response.result {
+            case .success:
+                print(JSON(response.data)["token"])
+                //debugPrint(response)
+            case .failure(let error):
+                print(error)
             }
             
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
         }
         
-        return user
+        return nil
     }
 }
 
 struct User {
     var username: String?
     var password: String?
-    var historyWords: [String]
-    var favoriteWords: [String]
+    var historyWords: [String] = []
+    var favoriteWords: [String] = []
 }

@@ -20,6 +20,13 @@ class LoginViewController: UIViewController {
         passwordTextField.layer.borderColor = (UIColor.white).cgColor
     }
     
+    @IBAction func okButtonPressed(_ sender: Any) {
+        var user = User()
+        user.username = loginTextField.text!
+        user.password = passwordTextField.text!
+        let manager = NetworkManager()
+        manager.token(from: user)
+    }
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
