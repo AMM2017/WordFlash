@@ -100,6 +100,7 @@ class MainViewController: UIViewController{
     }
     
     private func update(_ koloda: KolodaView) {
+        words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
         shuffledWords = (words + getRandomWords(on: 5)).shuffled()
         // koloda.applyAppearAnimationIfNeeded()
         koloda.resetCurrentCardIndex()
