@@ -485,6 +485,9 @@
                                 <rect key="frame" x="163" y="499" width="49" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="login"/>
+                                <connections>
+                                    <action selector="didButtonOkPressed:" destination="REJ-Oy-mB0" eventType="touchUpInside" id="10R-to-6wc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -495,6 +498,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4TC-sc-lxi"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="e36-8T-cyx" id="tgF-8S-dDk"/>
+                        <outlet property="usernameTextField" destination="SAy-zo-geQ" id="DVX-ft-gA8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwf-5Q-16G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
