@@ -8,7 +8,19 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, NetworkDelegate {
+    func didReceiveToken(token: String?) {
+        print(token)
+    }
+    
+    func didRegisterUser(register flag: Bool) {
+        print("register:")
+    }
+    
+    func didReceiveWords() {
+        print("words")
+    }
+    
     
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -21,10 +33,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func okButtonPressed(_ sender: Any) {
-        var user = User()
+        var user = NetworkUser()
         user.username = loginTextField.text!
         user.password = passwordTextField.text!
         let manager = NetworkManager()
+        manager.delegate = self
         manager.token(from: user)
     }
     
