@@ -23,8 +23,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Off-7c-13P">
-                    <rect key="frame" x="150.5" y="176" width="75.5" height="39.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Off-7c-13P">
+                    <rect key="frame" x="0.0" y="176" width="375" height="39.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="33"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -46,6 +46,7 @@
             <constraints>
                 <constraint firstItem="ZTQ-s1-U63" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="5rD-Qi-4W6"/>
                 <constraint firstItem="ZTQ-s1-U63" firstAttribute="centerX" secondItem="25S-tX-j3F" secondAttribute="centerX" id="6IB-Wl-rUI"/>
+                <constraint firstItem="Off-7c-13P" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="G6c-K7-sNL"/>
                 <constraint firstItem="Off-7c-13P" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Neg-On-rcr"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="25S-tX-j3F" secondAttribute="bottom" constant="20" id="aqw-lc-hK8"/>
                 <constraint firstItem="ZTQ-s1-U63" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.45" id="mvE-eO-nRh"/>

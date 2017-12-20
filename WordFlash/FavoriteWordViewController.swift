@@ -7,7 +7,7 @@ class FavoriteWordViewController: UIViewController {
     @IBOutlet weak var definition: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     //yep
     override func viewDidLoad() {
@@ -15,6 +15,8 @@ class FavoriteWordViewController: UIViewController {
         wordLabel.text = word?.word
         definition.text = word?.definition
         contentView.layer.borderColor = (UIColor(red:239.0,green:174.0,blue:0.0,alpha:1.0)).cgColor
+        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: definition.bottomAnchor).isActive = true
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
