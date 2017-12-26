@@ -8,7 +8,7 @@ import Alamofire
 
 //global
 var realm: Realm = try! Realm()
-
+let defaults:UserDefaults = UserDefaults.standard
 
 class MainViewController: UIViewController{
     

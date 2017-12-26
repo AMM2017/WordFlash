@@ -10,36 +10,50 @@ import UIKit
 
 class LoginViewController: UIViewController, NetworkDelegate {
     
-    func didReceiveToken(token: String?) {
-        stopLoadingAnimation()
-        print(token)
-    }
-    
-    func didRegisterUser(register flag: Bool) {
-        print("register")
-    }
-    
-    func didReceiveWords() {
-        print("words")
-    }
-    
-    
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var okButton: UIButton!
+    @IBOutlet weak var createButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loginTextField.layer.borderColor = (UIColor.white).cgColor
         passwordTextField.layer.borderColor = (UIColor.white).cgColor
+        spinner.isHidden = true
     }
     
-    @IBAction func okButtonPressed(_ sender: Any) {
-        if loginTextField.text = "" {
-            loginTextField.layer.borderColor = (UIColor.yellow).cgColor
+    
+    @IBAction func loginTextChanged(_ sender: Any) {
+        if loginTextField.text != "" {
+            loginTextField.layer.borderColor = (UIColor.white).cgColor
         }
-        if passwordTextField.text = "" {
+    }
+    
+    @IBAction func passTextChanged(_ sender: Any) {
+        if passwordTextField.text != "" {
+            passwordTextField.layer.borderColor = (UIColor.white).cgColor
+        }
+    }
+    
+    
+    
+    //MARK: custom
+    
+    @IBAction func back(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func okButtonPressed(_ sender: Any) {
+        if loginTextField.text == "" {
+            loginTextField.layer.borderColor = (UIColor.yellow).cgColor
+            return
+        }
+        if passwordTextField.text == "" {
             passwordTextField.layer.borderColor = (UIColor.yellow).cgColor
+            return
         }
         loginTextField.layer.borderColor = (UIColor.white).cgColor
         passwordTextField.layer.borderColor = (UIColor.white).cgColor
@@ -54,17 +68,50 @@ class LoginViewController: UIViewController, NetworkDelegate {
         startLoadingAnimation()
     }
     
-    @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    
+    //MARK: animation
     
     func startLoadingAnimation() {
-        
+        loginTextField.isEnabled = false
+        passwordTextField.isEnabled = false
+        createButton.isEnabled = false
+        okButton.isEnabled = false
+        spinner.isHidden = false
+        spinner.startAnimating()
     }
     
     func stopLoadingAnimation() {
-        
+        spinner.isHidden = true
+        spinner.stopAnimating()
+        loginTextField.isEnabled = true
+        passwordTextField.isEnabled = true
+        createButton.isEnabled = true
+        okButton.isEnabled = true
     }
+    
+    
+    //MARK: Networkmanager
+    
+    func didReceiveToken(token: String?) {
+        stopLoadingAnimation()
+        if token != nil {
+            defaults.set(token, forKey: "Token")
+            defaults.set(loginTextField.text, forKey: "Username")
+            //            self.dismiss(animated: false, completion: nil)
+        } else {
+            loginTextField.layer.borderColor = (UIColor.red).cgColor
+            passwordTextField.layer.borderColor = (UIColor.red).cgColor
+        }
+    }
+    
+    func didRegisterUser(register flag: Bool) {
+        print("register")
+    }
+    
+    func didReceiveWords() {
+        print("words")
+    }
+    
 }
 
 

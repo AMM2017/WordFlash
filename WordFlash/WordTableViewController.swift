@@ -10,7 +10,8 @@ enum State {
 enum SegueTarget {
     case Add
     case Shift
-    case Log
+    case Login
+    case Logout
 }
 
 class WordsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -96,8 +97,13 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
     //custom buttons
     
     @IBAction func log(_ sender: Any) {
-        segueTarget = .Log
-        self.performSegue(withIdentifier: "LogSegue", sender: self)
+        if defaults.object(forKey: "Username") == nil {
+            segueTarget = .Login
+            self.performSegue(withIdentifier: "LogSegue", sender: self)
+        } else {
+            segueTarget = .Logout
+            self.performSegue(withIdentifier: "LogoutSegue", sender: self)
+        }
     }
     
     @IBAction func back(_ sender: Any) {
@@ -140,7 +146,9 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 destination.word = word
             }
-        case .Log:
+        case .Login:
+            print("log")
+        case .Logout:
             print("log")
         }
     }

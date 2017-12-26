@@ -10,12 +10,17 @@ import UIKit
 
 class LogoutViewController: UIViewController {
     
-    @IBOutlet weak var nickname: UILabel!
+    @IBOutlet weak var username: UILabel!
+    
+    override func viewDidLoad() {
+        username.text = defaults.object(forKey: "Username") as? String
+    }
     
     
     @IBAction func logout(_ sender: Any) {
-        
-        
+        defaults.removeObject(forKey: "Username")
+        defaults.removeObject(forKey: "Token")
+        self.performSegue(withIdentifier: "NowLoginSegue", sender: self)
     }
     
     @IBAction func back(_ sender: Any) {

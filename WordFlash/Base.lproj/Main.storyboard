@@ -244,8 +244,8 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nickname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Psp-WN-58g">
-                                <rect key="frame" x="37.5" y="170" width="300" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="37.5" y="170" width="300" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -271,7 +271,7 @@
                         <viewLayoutGuide key="safeArea" id="BcG-mm-tEY"/>
                     </view>
                     <connections>
-                        <outlet property="nickname" destination="Psp-WN-58g" id="pFv-Yu-TKT"/>
+                        <outlet property="username" destination="Psp-WN-58g" id="ZWc-ZW-r91"/>
                         <segue destination="77Y-rp-9SG" kind="show" identifier="NowLoginSegue" id="XaG-9e-gSR"/>
                     </connections>
                 </viewController>
@@ -404,6 +404,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginTextChanged:" destination="77Y-rp-9SG" eventType="editingDidEnd" id="TbR-uH-o9c"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEJ-ah-qbf">
                                 <rect key="frame" x="38" y="203" width="300" height="30"/>
@@ -420,6 +423,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="passTextChanged:" destination="77Y-rp-9SG" eventType="editingDidEnd" id="jb3-n9-u9o"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liN-FX-qEW">
                                 <rect key="frame" x="163.5" y="298" width="49" height="49"/>
@@ -460,6 +466,10 @@
                                     <segue destination="REJ-Oy-mB0" kind="show" identifier="registerSegue" id="3lu-C0-hB7"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="foB-Pm-S31">
+                                <rect key="frame" x="178" y="258" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -471,18 +481,24 @@
                             <constraint firstItem="liN-FX-qEW" firstAttribute="top" secondItem="gEJ-ah-qbf" secondAttribute="bottom" constant="65" id="KSW-Fh-pbn"/>
                             <constraint firstItem="liN-FX-qEW" firstAttribute="centerX" secondItem="Zka-zx-Q7y" secondAttribute="centerX" id="RG8-gI-KIz"/>
                             <constraint firstItem="Zka-zx-Q7y" firstAttribute="bottom" secondItem="wol-VF-8Nz" secondAttribute="bottom" constant="30" id="UEZ-Jw-8IV"/>
+                            <constraint firstItem="liN-FX-qEW" firstAttribute="top" secondItem="foB-Pm-S31" secondAttribute="bottom" constant="20" id="WD3-zv-EZb"/>
                             <constraint firstItem="cZD-h7-r4e" firstAttribute="centerX" secondItem="Zka-zx-Q7y" secondAttribute="centerX" id="goZ-bp-wbF"/>
                             <constraint firstItem="cZD-h7-r4e" firstAttribute="top" secondItem="Zka-zx-Q7y" secondAttribute="top" constant="10" id="kCe-AX-1tD"/>
                             <constraint firstItem="gEJ-ah-qbf" firstAttribute="width" secondItem="zlv-XJ-fJ5" secondAttribute="width" multiplier="0.8" id="thC-cK-CQO"/>
                             <constraint firstItem="uap-52-F3R" firstAttribute="top" secondItem="zlv-XJ-fJ5" secondAttribute="top" constant="143" id="uWd-D0-5uz"/>
                             <constraint firstItem="gEJ-ah-qbf" firstAttribute="centerX" secondItem="Zka-zx-Q7y" secondAttribute="centerX" id="wOR-sJ-EmZ"/>
                             <constraint firstItem="uap-52-F3R" firstAttribute="width" secondItem="zlv-XJ-fJ5" secondAttribute="width" multiplier="0.8" id="wX9-cd-4ED"/>
+                            <constraint firstItem="foB-Pm-S31" firstAttribute="centerX" secondItem="liN-FX-qEW" secondAttribute="centerX" id="y6x-u5-NZ6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Zka-zx-Q7y"/>
                     </view>
                     <connections>
+                        <outlet property="createButton" destination="wol-VF-8Nz" id="c2z-jI-E4D"/>
                         <outlet property="loginTextField" destination="uap-52-F3R" id="yYo-mP-H0W"/>
+                        <outlet property="mainView" destination="zlv-XJ-fJ5" id="x8m-nH-5O5"/>
+                        <outlet property="okButton" destination="liN-FX-qEW" id="9eH-Z6-AqP"/>
                         <outlet property="passwordTextField" destination="gEJ-ah-qbf" id="XJU-aG-Olq"/>
+                        <outlet property="spinner" destination="foB-Pm-S31" id="DVt-m1-RGX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03e-54-0K8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -877,7 +893,7 @@
         <image name="smallorstar" width="25" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XaG-9e-gSR"/>
+        <segue reference="YbV-ZT-VNN"/>
         <segue reference="0kH-YX-fw8"/>
     </inferredMetricsTieBreakers>
 </document>
