@@ -24,9 +24,17 @@ class LoginViewController: UIViewController, NetworkDelegate {
         spinner.isHidden = true
     }
     
+    /*@IBAction func loginTextChanged(_ sender: Any) {
+        if loginTextField.text != "" {
+            loginTextField.layer.borderColor = (UIColor.white).cgColor
+        }
+    }
     
-    
-    
+    @IBAction func passTextChanged(_ sender: Any) {
+        if passwordTextField.text != "" {
+            passwordTextField.layer.borderColor = (UIColor.white).cgColor
+        }
+    }*/
     
     //MARK: custom
     
@@ -83,13 +91,15 @@ class LoginViewController: UIViewController, NetworkDelegate {
     
     func didReceiveToken(token: String?) {
         stopLoadingAnimation()
-        if token != nil {
+        if token == nil {
             defaults.set(token, forKey: "Token")
             defaults.set(loginTextField.text, forKey: "Username")
-            //            self.dismiss(animated: false, completion: nil)
+            self.dismiss(animated: false, completion: nil)
         } else {
             loginTextField.layer.borderColor = (UIColor.red).cgColor
+            loginTextField.shake()
             passwordTextField.layer.borderColor = (UIColor.red).cgColor
+            passwordTextField.shake()
         }
     }
     
