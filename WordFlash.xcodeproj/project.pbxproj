@@ -17,6 +17,7 @@
 		A42C5B9B1FD2C95B0063D265 /* HistoryWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B9A1FD2C95B0063D265 /* HistoryWordViewController.swift */; };
 		A42C5B9D1FD2CD9A0063D265 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B9C1FD2CD9A0063D265 /* AddWordViewController.swift */; };
 		A456B5B81FDAC44400421186 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456B5B71FDAC44400421186 /* CardView.swift */; };
+		A46FF8B41FF2BBDF009AB3F0 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46FF8B31FF2BBDF009AB3F0 /* LogoutViewController.swift */; };
 		A4BD85471FE5C026002C0DAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD85461FE5C026002C0DAE /* LoginViewController.swift */; };
 		A4D32BF51FE90CC700CFC40B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D32BF41FE90CC700CFC40B /* RegisterViewController.swift */; };
 		A4DC2ECD1FDC174400317ED8 /* MutableCollections+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */; };
@@ -66,6 +67,7 @@
 		A42C5B9A1FD2C95B0063D265 /* HistoryWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWordViewController.swift; sourceTree = "<group>"; };
 		A42C5B9C1FD2CD9A0063D265 /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		A456B5B71FDAC44400421186 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A46FF8B31FF2BBDF009AB3F0 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
 		A4BD85461FE5C026002C0DAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A4D32BF41FE90CC700CFC40B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MutableCollections+Shuffle.swift"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */,
 				A4BD85461FE5C026002C0DAE /* LoginViewController.swift */,
 				A4D32BF41FE90CC700CFC40B /* RegisterViewController.swift */,
+				A46FF8B31FF2BBDF009AB3F0 /* LogoutViewController.swift */,
 			);
 			path = WordFlash;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				FA312F011FCBF37200D55F06 /* MainViewController.swift in Sources */,
 				FA023A101FDB1BF500FC7EDF /* Dictionary.swift in Sources */,
 				A456B5B81FDAC44400421186 /* CardView.swift in Sources */,
+				A46FF8B41FF2BBDF009AB3F0 /* LogoutViewController.swift in Sources */,
 				AEDDDC8F1FEA94BC00C692E7 /* NetworkDelegate.swift in Sources */,
 				A42C5B971FD2BE490063D265 /* WordTableCell.swift in Sources */,
 				A42C5B9D1FD2CD9A0063D265 /* AddWordViewController.swift in Sources */,

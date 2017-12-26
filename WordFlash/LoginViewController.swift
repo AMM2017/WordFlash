@@ -9,12 +9,14 @@
 import UIKit
 
 class LoginViewController: UIViewController, NetworkDelegate {
+    
     func didReceiveToken(token: String?) {
+        stopLoadingAnimation()
         print(token)
     }
     
     func didRegisterUser(register flag: Bool) {
-        print("register:")
+        print("register")
     }
     
     func didReceiveWords() {
@@ -33,15 +35,42 @@ class LoginViewController: UIViewController, NetworkDelegate {
     }
     
     @IBAction func okButtonPressed(_ sender: Any) {
+        if loginTextField.text = "" {
+            loginTextField.layer.borderColor = (UIColor.yellow).cgColor
+        }
+        if passwordTextField.text = "" {
+            passwordTextField.layer.borderColor = (UIColor.yellow).cgColor
+        }
+        loginTextField.layer.borderColor = (UIColor.white).cgColor
+        passwordTextField.layer.borderColor = (UIColor.white).cgColor
+        
         var user = NetworkUser()
         user.username = loginTextField.text!
         user.password = passwordTextField.text!
+        
         let manager = NetworkManager()
         manager.delegate = self
         manager.token(from: user)
+        startLoadingAnimation()
     }
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    func startLoadingAnimation() {
+        
+    }
+    
+    func stopLoadingAnimation() {
+        
+    }
 }
+
+
+
+
+
+
+
+
