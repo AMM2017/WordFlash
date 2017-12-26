@@ -25,17 +25,6 @@ class LoginViewController: UIViewController, NetworkDelegate {
     }
     
     
-    @IBAction func loginTextChanged(_ sender: Any) {
-        if loginTextField.text != "" {
-            loginTextField.layer.borderColor = (UIColor.white).cgColor
-        }
-    }
-    
-    @IBAction func passTextChanged(_ sender: Any) {
-        if passwordTextField.text != "" {
-            passwordTextField.layer.borderColor = (UIColor.white).cgColor
-        }
-    }
     
     
     
@@ -48,11 +37,11 @@ class LoginViewController: UIViewController, NetworkDelegate {
     
     @IBAction func okButtonPressed(_ sender: Any) {
         if loginTextField.text == "" {
-            loginTextField.layer.borderColor = (UIColor.yellow).cgColor
+            loginTextField.shake()
             return
         }
         if passwordTextField.text == "" {
-            passwordTextField.layer.borderColor = (UIColor.yellow).cgColor
+            passwordTextField.shake()
             return
         }
         loginTextField.layer.borderColor = (UIColor.white).cgColor
@@ -112,6 +101,16 @@ class LoginViewController: UIViewController, NetworkDelegate {
         print("words")
     }
     
+}
+
+extension UIView {
+    func shake() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.duration = 0.6
+        animation.values = [-15.0, 15.0, -15.0, 15.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        layer.add(animation, forKey: "shake")
+    }
 }
 
 

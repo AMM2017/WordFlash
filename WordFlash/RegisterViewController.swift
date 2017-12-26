@@ -9,18 +9,12 @@
 import UIKit
 
 class RegisterViewController: UIViewController, NetworkDelegate {
-    func didReceiveToken(token: String?) {
-        //pass
-    }
     
-    func didRegisterUser(register flag: Bool) {
-        print("register: \(flag)")
-    }
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     
-    func didReceiveWords() {
-        //pass
-    }
     
+    //MARK: custom
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -37,7 +31,19 @@ class RegisterViewController: UIViewController, NetworkDelegate {
         manager.register(user)
     }
     
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    
+    //MARK: Networkmanager
+    
+    func didReceiveToken(token: String?) {
+        //pass
+    }
+    
+    func didRegisterUser(register flag: Bool) {
+        print("register: \(flag)")
+    }
+    
+    func didReceiveWords() {
+        //pass
+    }
 }
 
