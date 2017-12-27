@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="8Yq-AY-mMk"/>
                 <outlet property="definitionLabel" destination="ZTQ-s1-U63" id="QVt-Q4-UC6"/>
+                <outlet property="scrollView" destination="aHJ-HP-Wg0" id="YyC-n9-ygj"/>
                 <outlet property="starButton" destination="25S-tX-j3F" id="RKp-P9-sKB"/>
                 <outlet property="wordLabel" destination="Off-7c-13P" id="Dci-DH-6Qp"/>
             </connections>
@@ -24,35 +25,47 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Off-7c-13P">
-                    <rect key="frame" x="0.0" y="176" width="375" height="39.5"/>
+                    <rect key="frame" x="0.0" y="120" width="375" height="39.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="33"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25S-tX-j3F">
-                    <rect key="frame" x="172" y="613" width="30" height="34"/>
+                    <rect key="frame" x="172.5" y="613" width="30" height="34"/>
                     <connections>
                         <action selector="starPressed:" destination="-1" eventType="touchUpInside" id="L9H-re-g0Z"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="5" highlighted="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTQ-s1-U63">
-                    <rect key="frame" x="37" y="215.5" width="300" height="300"/>
-                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHJ-HP-Wg0">
+                    <rect key="frame" x="37" y="194.5" width="300" height="267"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" highlighted="YES" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTQ-s1-U63">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="14.5"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="ZTQ-s1-U63" firstAttribute="top" secondItem="aHJ-HP-Wg0" secondAttribute="top" id="A5Z-jq-Ykb"/>
+                        <constraint firstAttribute="bottom" secondItem="ZTQ-s1-U63" secondAttribute="bottom" constant="385.5" placeholder="YES" id="Wtc-4O-MbW"/>
+                        <constraint firstItem="ZTQ-s1-U63" firstAttribute="width" secondItem="aHJ-HP-Wg0" secondAttribute="width" id="aT7-gT-gRE"/>
+                        <constraint firstAttribute="trailing" secondItem="ZTQ-s1-U63" secondAttribute="trailing" id="aU2-zc-Ron"/>
+                        <constraint firstItem="ZTQ-s1-U63" firstAttribute="leading" secondItem="aHJ-HP-Wg0" secondAttribute="leading" id="pjk-2r-Lgp"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="ZTQ-s1-U63" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="5rD-Qi-4W6"/>
-                <constraint firstItem="ZTQ-s1-U63" firstAttribute="centerX" secondItem="25S-tX-j3F" secondAttribute="centerX" id="6IB-Wl-rUI"/>
                 <constraint firstItem="Off-7c-13P" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="G6c-K7-sNL"/>
                 <constraint firstItem="Off-7c-13P" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Neg-On-rcr"/>
+                <constraint firstItem="aHJ-HP-Wg0" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="R34-I8-peM"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="25S-tX-j3F" secondAttribute="bottom" constant="20" id="aqw-lc-hK8"/>
-                <constraint firstItem="ZTQ-s1-U63" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.45" id="mvE-eO-nRh"/>
-                <constraint firstItem="Off-7c-13P" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="156" id="x8d-0R-DCz"/>
-                <constraint firstItem="ZTQ-s1-U63" firstAttribute="top" secondItem="Off-7c-13P" secondAttribute="bottom" id="yv8-Qr-97l"/>
-                <constraint firstItem="ZTQ-s1-U63" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="zxj-uo-nbD"/>
+                <constraint firstItem="25S-tX-j3F" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="gZr-C1-oyU"/>
+                <constraint firstItem="aHJ-HP-Wg0" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.4" id="j6v-zS-Swo"/>
+                <constraint firstItem="aHJ-HP-Wg0" firstAttribute="top" secondItem="Off-7c-13P" secondAttribute="bottom" constant="35" id="sis-V8-TUZ"/>
+                <constraint firstItem="Off-7c-13P" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="100" id="x8d-0R-DCz"/>
+                <constraint firstItem="aHJ-HP-Wg0" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="zYf-3E-PHu"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <userDefinedRuntimeAttributes>

@@ -38,6 +38,7 @@ class LoginViewController: UIViewController, NetworkDelegate {
     
     //MARK: custom
     
+    
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -91,7 +92,7 @@ class LoginViewController: UIViewController, NetworkDelegate {
     
     func didReceiveToken(token: String?) {
         stopLoadingAnimation()
-        if token == nil {
+        if token != "" {
             defaults.set(token, forKey: "Token")
             defaults.set(loginTextField.text, forKey: "Username")
             self.dismiss(animated: false, completion: nil)

@@ -61,8 +61,7 @@
                                     <navigationItem id="Se9-AH-GEw">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="bR0-Nm-BNw">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J0x-6W-veH">
-                                                <rect key="frame" x="16" y="9.5" width="25" height="25"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <rect key="frame" x="16" y="4" width="35" height="36"/>                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -211,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45.600000000000001" y="-83.208395802098963"/>
+            <point key="canvasLocation" x="161" y="-103"/>
         </scene>
         <!--Logout View Controller-->
         <scene sceneID="nNE-Q6-YBa">
@@ -296,7 +295,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5U-DV-lyt">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5U-DV-lyt">
                                         <rect key="frame" x="15" y="96.5" width="270" height="303.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asP-5Q-nsd">
@@ -437,7 +436,7 @@
                                     <navigationItem id="R8S-fv-QgM">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="KzC-cX-AcQ">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="amm-n0-DAA">
-                                                <rect key="frame" x="16" y="9.5" width="25" height="25"/>
+                                                <rect key="frame" x="16" y="4" width="35" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -542,7 +541,7 @@
                                     <navigationItem id="IrT-Qp-rum">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="kgj-hc-Blc">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ydT-Yz-f60">
-                                                <rect key="frame" x="16" y="9.5" width="25" height="25"/>
+                                                <rect key="frame" x="16" y="4" width="35" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -687,13 +686,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="8eY-SO-NwK"/>
                                 </constraints>
-                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="barTintColor" red="0.035294117647058823" green="0.078431372549019607" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="12y-ZX-Tdt">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="ZuD-Oc-ili">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4dp-6B-nJL">
-                                                <rect key="frame" x="16" y="9.5" width="25" height="25"/>
+                                                <rect key="frame" x="16" y="4" width="35" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -789,11 +788,11 @@
                                             <action selector="starPressed:" destination="VPr-0D-4cJ" eventType="touchUpInside" id="qU5-em-ybk"/>
                                         </connections>
                                     </button>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvp-ak-f5J">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvp-ak-f5J">
                                         <rect key="frame" x="15" y="97" width="270" height="303.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0b-8n-vp4">
-                                                <rect key="frame" x="0.0" y="0.0" width="270" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="256.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -802,7 +801,7 @@
                                         <constraints>
                                             <constraint firstItem="M0b-8n-vp4" firstAttribute="top" secondItem="fvp-ak-f5J" secondAttribute="top" id="mmQ-dw-0y5"/>
                                             <constraint firstAttribute="bottom" secondItem="M0b-8n-vp4" secondAttribute="bottom" constant="212.5" placeholder="YES" id="qk6-ur-iC6"/>
-                                            <constraint firstItem="M0b-8n-vp4" firstAttribute="width" secondItem="fvp-ak-f5J" secondAttribute="width" id="uIw-VB-YYJ"/>
+                                            <constraint firstItem="M0b-8n-vp4" firstAttribute="width" secondItem="fvp-ak-f5J" secondAttribute="width" multiplier="0.95" id="uIw-VB-YYJ"/>
                                             <constraint firstAttribute="trailing" secondItem="M0b-8n-vp4" secondAttribute="trailing" id="vgX-4L-fNd"/>
                                             <constraint firstItem="M0b-8n-vp4" firstAttribute="leading" secondItem="fvp-ak-f5J" secondAttribute="leading" id="zKK-Q2-IgY"/>
                                         </constraints>
@@ -836,7 +835,7 @@
                                     <navigationItem id="ATp-c2-Tr3">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="z4G-rj-NBl">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rfP-Rz-8U1">
-                                                <rect key="frame" x="16" y="9.5" width="25" height="25"/>
+                                                <rect key="frame" x="16" y="4" width="35" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

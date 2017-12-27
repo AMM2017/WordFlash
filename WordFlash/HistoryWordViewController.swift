@@ -14,7 +14,7 @@ class HistoryWordViewController: UIViewController {
         super.viewDidLoad()
         wordLabel.text = word?.word
         definition.text = word?.definition
-        contentViewHist.layer.borderColor = (UIColor.green).cgColor
+        contentViewHist.layer.borderColor = UIColor(red: 113.0 / 255, green: 255.0 / 255, blue: 170 / 255, alpha: 1.0).cgColor
         scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: definition.bottomAnchor).isActive = true
     }
     
