@@ -8,27 +8,77 @@
 
 import UIKit
 
+
 class RegisterViewController: UIViewController, NetworkDelegate {
+
+    @IBOutlet weak var okButton: UIButton!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var loginTextField: UITextField!
+    @IBOutlet weak var firstPasswordTextField: UITextField!
+    @IBOutlet weak var secondPasswordTextField: UITextField!
     
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    
-    
-    //MARK: custom
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        spinner.isHidden = true
+        nameTextField.layer.borderColor = (UIColor.white).cgColor
+        nameTextField.delegate = self
+        loginTextField.layer.borderColor = (UIColor.white).cgColor
+        loginTextField.delegate = self
+        firstPasswordTextField.layer.borderColor = (UIColor.white).cgColor
+        firstPasswordTextField.delegate = self
+        secondPasswordTextField.layer.borderColor = (UIColor.white).cgColor
+        secondPasswordTextField.delegate = self
+    }
+
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func didButtonOkPressed(_ sender: Any) {
-        let manager = NetworkManager()
-        manager.delegate = self
+        if loginTextField.text == "" {
+            loginTextField.shake()
+            return
+        }
+        if firstPasswordTextField.text == "" {
+            firstPasswordTextField.shake()
+            return
+        }
+        if secondPasswordTextField.text == "" || secondPasswordTextField.text != firstPasswordTextField.text {
+            secondPasswordTextField.shake()
+            return
+        }
         
         var user = NetworkUser()
-        user.username = usernameTextField.text!
-        user.password = passwordTextField.text!
+        user.username = loginTextField.text!
+        user.password = firstPasswordTextField.text!
         
+        let manager = NetworkManager()
+        manager.delegate = self
         manager.register(user)
+        startLoadingAnimation()
+    }
+    
+    
+    //MARK: animation
+    
+    func startLoadingAnimation() {
+        loginTextField.isEnabled = false
+        firstPasswordTextField.isEnabled = false
+        secondPasswordTextField.isEnabled = false
+        okButton.isEnabled = false
+        spinner.isHidden = false
+        spinner.startAnimating()
+    }
+    
+    func stopLoadingAnimation() {
+        spinner.isHidden = true
+        spinner.stopAnimating()
+        loginTextField.isEnabled = true
+        firstPasswordTextField.isEnabled = true
+        secondPasswordTextField.isEnabled = true
+        okButton.isEnabled = true
     }
     
     
@@ -39,7 +89,16 @@ class RegisterViewController: UIViewController, NetworkDelegate {
     }
     
     func didRegisterUser(register flag: Bool) {
-        print("register: \(flag)")
+        stopLoadingAnimation()
+        if flag {
+            //TODO: defaults.set(token, forKey: "Token")
+            defaults.set(loginTextField.text, forKey: "Username")
+            self.dismiss(animated: false, completion: nil)
+        } else {
+            firstPasswordTextField.layer.borderColor = (UIColor.red).cgColor
+            secondPasswordTextField.layer.borderColor = (UIColor.red).cgColor
+            loginTextField.layer.borderColor = (UIColor.red).cgColor
+        }
     }
     
     func didReceiveWords() {

@@ -20,7 +20,9 @@ class LoginViewController: UIViewController, NetworkDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginTextField.layer.borderColor = (UIColor.white).cgColor
+        loginTextField.delegate = self
         passwordTextField.layer.borderColor = (UIColor.white).cgColor
+        passwordTextField.delegate = self
         spinner.isHidden = true
     }
     
@@ -35,6 +37,7 @@ class LoginViewController: UIViewController, NetworkDelegate {
             passwordTextField.layer.borderColor = (UIColor.white).cgColor
         }
     }*/
+    
     
     //MARK: custom
     
@@ -112,16 +115,6 @@ class LoginViewController: UIViewController, NetworkDelegate {
         print("words")
     }
     
-}
-
-extension UIView {
-    func shake() {
-        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        animation.duration = 0.6
-        animation.values = [-15.0, 15.0, -15.0, 15.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-        layer.add(animation, forKey: "shake")
-    }
 }
 
 
