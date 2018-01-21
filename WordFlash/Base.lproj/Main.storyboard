@@ -372,7 +372,7 @@
                     </view>
                     <connections>
                         <outlet property="contentViewHist" destination="Gs2-eW-pja" id="CVB-tY-tIv"/>
-                        <outlet property="definition" destination="asP-5Q-nsd" id="chI-Ko-IRk"/>
+                        <outlet property="definitionLabel" destination="asP-5Q-nsd" id="5WC-4X-ads"/>
                         <outlet property="scrollView" destination="q5U-DV-lyt" id="7UO-qA-9PV"/>
                         <outlet property="wordLabel" destination="yTU-W0-yGp" id="x5q-r6-xUY"/>
                     </connections>
@@ -952,7 +952,7 @@
                     </view>
                     <connections>
                         <outlet property="contentView" destination="Ycl-al-dgp" id="WTw-EH-okj"/>
-                        <outlet property="definition" destination="M0b-8n-vp4" id="g7d-Tg-HtO"/>
+                        <outlet property="definitionLabel" destination="M0b-8n-vp4" id="YRD-Uq-uGU"/>
                         <outlet property="scrollView" destination="fvp-ak-f5J" id="5FE-nw-T2n"/>
                         <outlet property="starButton" destination="J0I-4Z-uRQ" id="4Fn-q2-7Dg"/>
                         <outlet property="wordLabel" destination="tSF-uq-hPG" id="kSG-Dw-bYz"/>

@@ -36,19 +36,13 @@ class CardView: UIView {
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        contentView.backgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
-        contentView.layer.borderColor = (UIColor(red:255.0,green:255.0,blue:255.0,alpha:1.0)).cgColor
-        wordLabel.textColor = UIColor.white
-        definitionLabel.isHidden = true
-        definitionLabel.textColor = .white
-        let doubletap = UITapGestureRecognizer(target: self, action:  #selector (self.tapped (_:)))
+        contentView.backgroundColor = Color.dolphin
+        contentView.layer.borderColor = (UIColor.white).cgColor
+        
+        let doubletap = UITapGestureRecognizer(target: self, action: #selector (self.tapped (_:)))
         doubletap.numberOfTapsRequired = 2
         self.contentView.addGestureRecognizer(doubletap)
         scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: definitionLabel.bottomAnchor).isActive = true
-    }
-    
-    @objc func tapped(_ sender:UITapGestureRecognizer) {
-        flip()
     }
     
     public func construct(for word:Word) {
@@ -68,6 +62,10 @@ class CardView: UIView {
         UIView.transition(with: self, duration: 0.5, options: transitionOptions, animations: {
             self.definitionLabel.isHidden = !self.definitionLabel.isHidden
         })
+    }
+    
+    @objc func tapped(_ sender:UITapGestureRecognizer) {
+        flip()
     }
 }
 

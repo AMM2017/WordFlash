@@ -9,7 +9,7 @@ enum State {
 
 enum SegueTarget {
     case Add
-    case Shift
+    case Word
     case Login
     case Logout
 }
@@ -26,18 +26,15 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var favoButton: UIButton!
     @IBOutlet weak var histButton: UIButton!
     @IBOutlet var designView: UIView!
-    //img@3x
     
-    
-    //yep
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
-        designView.backgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
-        tableView.sectionIndexBackgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
+        designView.backgroundColor = Color.dolphin
+        tableView.sectionIndexBackgroundColor = Color.dolphin
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,27 +44,23 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
             favoButton.setImage(#imageLiteral(resourceName: "defstar"), for: .normal)
             histButton.isEnabled = false
             favoButton.isEnabled = true
-            bar.backgroundColor = UIColor(red: 113.0 / 255, green: 255.0 / 255, blue: 170 / 255, alpha: 0.5)
+            bar.backgroundColor = Color.alien
         } else {
             favoButton.setImage(#imageLiteral(resourceName: "favstar"), for: .normal)
             histButton.setImage(#imageLiteral(resourceName: "defline"), for: .normal)
             favoButton.isEnabled = false
             histButton.isEnabled = true
-            bar.backgroundColor = UIColor(red: 239.0 / 255, green: 174.0 / 255, blue: 0, alpha: 0.5)
+            bar.backgroundColor = Color.gold
         }
-        //loading words from db
+        bar.topItem?.title = (state == .History) ? "History" : "Favorite"
+        
         words = realm.objects(Word.self).filter(NSPredicate(format: state == .History ? "inHistory == true" : "isFavorite == true"))
         tableView.reloadData()
-        self.title = state == .History ? "History" : "Favorite"
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     
     
-    //tableView section
+    // MARK: tableView section
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return words?.count ?? 0
@@ -83,20 +76,20 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
                 fatalError("Fatal error")
         }
         cell.set(word: words[indexPath.row].word)
-        cell.set(color: UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0))
+        cell.set(color: Color.dolphin)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         word = words[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
-        segueTarget = .Shift
-        self.performSegue(withIdentifier: state == .Favorite ? "FavoriteSegue" : "HistorySegue", sender: self)
+        segueTarget = .Word
+        self.performSegue(withIdentifier: (state == .Favorite) ? "FavoriteSegue" : "HistorySegue", sender: self)
     }
     
     
     
-    //custom buttons
+    // MARK: custom buttons
     
     @IBAction func log(_ sender: Any) {
         if defaults.object(forKey: "Username") == nil {
@@ -117,41 +110,33 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
         self.performSegue(withIdentifier: "AddWordSegue", sender: self)
     }
     @IBAction func showOtherList(_ sender: Any) {
-        state = state == .History ? .Favorite : .History
+        state = (state == .History) ? .Favorite : .History
         self.viewDidAppear(false)
     }
     
     
     
+    // MARK: prepare for segue
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segueTarget {
-        case .Add:
-            guard let destination = segue.destination as? AddWordViewController
-                else {fatalError("Some Error")}
-            //getting all words from db and sending them to addview
-            var alreadyHaveWords: [String] = []
-            for word in realm.objects(Word.self) {
-                alreadyHaveWords.append( word.word )
-            }
-            destination.alreadyHaveWords = alreadyHaveWords
-        case .Shift:
-            
+        case .Word:
             if state == .History {
                 guard let destination = segue.destination as? HistoryWordViewController
-                    else {fatalError("Some Error")}
-                
+                    else { fatalError("Some Error") }
                 destination.word = word
             }
             else {
                 guard let destination = segue.destination as? FavoriteWordViewController
-                    else {fatalError("Some Error")}
-                
+                    else { fatalError("Some Error") }
                 destination.word = word
             }
+        case .Add:
+            break
         case .Login:
-            print("log")
+            break
         case .Logout:
-            print("log")
+            break
         }
     }
     

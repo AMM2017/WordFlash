@@ -4,7 +4,7 @@ class FavoriteWordViewController: UIViewController {
     
     var word:Word?
     @IBOutlet weak var starButton: UIButton!
-    @IBOutlet weak var definition: UILabel!
+    @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -13,9 +13,9 @@ class FavoriteWordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         wordLabel.text = word?.word
-        definition.text = word?.definition
-        contentView.layer.borderColor = UIColor(red: 239.0 / 255, green: 174.0 / 255, blue: 0, alpha: 1.0).cgColor
-        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: definition.bottomAnchor).isActive = true
+        definitionLabel.text = word?.definition
+        contentView.layer.borderColor = Color.gold.cgColor
+        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: definitionLabel.bottomAnchor).isActive = true
     
     }
     

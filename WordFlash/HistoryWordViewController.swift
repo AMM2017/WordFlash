@@ -3,7 +3,7 @@ import UIKit
 class HistoryWordViewController: UIViewController {
     
     var word:Word?
-    @IBOutlet weak var definition: UILabel!
+    @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var contentViewHist: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -13,9 +13,9 @@ class HistoryWordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         wordLabel.text = word?.word
-        definition.text = word?.definition
-        contentViewHist.layer.borderColor = UIColor(red: 113.0 / 255, green: 255.0 / 255, blue: 170 / 255, alpha: 1.0).cgColor
-        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: definition.bottomAnchor).isActive = true
+        definitionLabel.text = word?.definition
+        contentViewHist.layer.borderColor = Color.alien.cgColor
+        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: definitionLabel.bottomAnchor).isActive = true
     }
     
     override func viewDidAppear(_ animated: Bool) {

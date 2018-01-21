@@ -5,32 +5,26 @@ import RealmSwift
 
 class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
-    static let dict: Dictionary = Dictionary.sharedInstance
-    //let allWords: [String] = ["Door", "Pen", "Pencil", "Pool", "Floor", "Book", "Great", "Pottt", "Fgdgd", "Gfgdgs", "Ggsrgrwegwgr", "Qwert"]
-    let allWords: [String] = dict.words
-    var alreadyHaveWords: [String]?
+    let dict: Dictionary = Dictionary.sharedInstance
+    var allWords: [String] = []
+    var alreadyHaveWords: [String] = []
     var filteredWords: [String] = []
     var charsInSearchBar = 0
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    //yep
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //todo loading
+        for word in realm.objects(Word.self) {
+            alreadyHaveWords.append( word.word )
+        }
+        allWords = dict.words
         filteredWords = allWords
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
     
     
@@ -47,12 +41,10 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: WordTableCell.reuseId) as? WordTableCell
-            else {
-                fatalError("Fatal error")
-        }
+            else { fatalError("Fatal error") }
         cell.set(word: filteredWords[indexPath.row])
-        cell.set(fontColor: alreadyHaveWords!.contains(cell.WordLabel.text!) ? .gray : .white)
-        cell.set(color: UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0))
+        cell.set(fontColor: alreadyHaveWords.contains(cell.WordLabel.text!) ? .gray : .white)
+        cell.set(color: Color.dolphin)
         return cell
     }
     
@@ -60,8 +52,8 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
         //adding word to realm
         let word = Word()
         word.word = filteredWords[indexPath.row]
-        word.definition = AddWordViewController.dict[word.word]
-        if !alreadyHaveWords!.contains(word.word) {
+        word.definition = dict[word.word]
+        if !alreadyHaveWords.contains(word.word) {
             try? realm.write {
                 realm.add(word)
             }
