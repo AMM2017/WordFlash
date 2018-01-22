@@ -56,7 +56,7 @@ class LoginViewController: UIViewController, NetworkDelegate {
         
         let manager = NetworkManager()
         manager.delegate = self
-        manager.token(from: user)
+        _ = manager.token(from: user)
         startLoadingAnimation()
     }
     

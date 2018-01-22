@@ -35,7 +35,7 @@ class MainViewController: UIViewController{
         kolodaView.delegate = self
         kolodaView.backgroundColor = Color.dolphin
         words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
-        shuffledWords = (words + getRandomWords(on: 5)).shuffled()
+        shuffledWords = (words + Functions.getRandomWords(on: 5)).shuffled()
         kolodaView.resetCurrentCardIndex()
         kolodaView.reloadData()
         refreshButton.isHidden = true
@@ -99,7 +99,7 @@ class MainViewController: UIViewController{
     // MARK: for kolodaView
     private func update(_ koloda: KolodaView) {
         words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
-        shuffledWords = (words + getRandomWords(on: 5)).shuffled()
+        shuffledWords = (words + Functions.getRandomWords(on: 5)).shuffled()
         koloda.resetCurrentCardIndex()
         koloda.reloadData()
     }
@@ -173,28 +173,5 @@ extension MainViewController: StarPressedDelegate {
     }
 }
 
-
-// MARK: dictionary random n
-private func getRandomWords(on count: Int) -> [Word]
-{
-    var alreadyHaveWords:[String] = []
-    for word in realm.objects(Word.self) {
-        alreadyHaveWords.append( word.word )
-    }
-    
-    let allWords = Dictionary.sharedInstance.words
-    var res: Set<Word> = []
-    while (res.count < count) {
-        let word = Word()
-        word.word = allWords[Int(arc4random_uniform(UInt32(allWords.count)))]
-        if alreadyHaveWords.contains(word.word) {
-            continue
-        }
-        word.definition = Dictionary.sharedInstance[word.word]
-        word.isAddedByUser = false
-        res.insert(word)
-    }
-    return Array(res)
-}
 
 

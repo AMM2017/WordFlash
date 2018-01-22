@@ -10,6 +10,7 @@
 		3290D55B0AC3AC0B36FF8E57 /* Pods_WordFlash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D4C52252BD884747FDD3C3 /* Pods_WordFlash.framework */; };
 		6DC181E176B3A556F44FC13C /* Pods_WordFlashTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C0E1FD8633069262A49A21A /* Pods_WordFlashTests.framework */; };
 		9C747EC8F12FE8A99BBD3FC6 /* Pods_WordFlashUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75C7F67F736BA7D5051F4960 /* Pods_WordFlashUITests.framework */; };
+		A415FEDD2015EF8900983B38 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A415FEDC2015EF8900983B38 /* Functions.swift */; };
 		A42C5B931FD2BDA90063D265 /* WordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B921FD2BDA90063D265 /* WordTableViewController.swift */; };
 		A42C5B951FD2BE3A0063D265 /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B941FD2BE3A0063D265 /* WordModel.swift */; };
 		A42C5B971FD2BE490063D265 /* WordTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B961FD2BE490063D265 /* WordTableCell.swift */; };
@@ -61,6 +62,7 @@
 		75C7F67F736BA7D5051F4960 /* Pods_WordFlashUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WordFlashUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0E1FD8633069262A49A21A /* Pods_WordFlashTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WordFlashTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F74B4CF15969D4F09E3915E /* Pods-WordFlash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordFlash.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WordFlash/Pods-WordFlash.debug.xcconfig"; sourceTree = "<group>"; };
+		A415FEDC2015EF8900983B38 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		A42C5B921FD2BDA90063D265 /* WordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableViewController.swift; sourceTree = "<group>"; };
 		A42C5B941FD2BE3A0063D265 /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
 		A42C5B961FD2BE490063D265 /* WordTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableCell.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				A47FD3032014C9FB005C17F1 /* Constants.swift */,
+				A415FEDC2015EF8900983B38 /* Functions.swift */,
 				A474E0481FF39DDE000205F6 /* UIExtensions.swift */,
 				A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */,
 				AEDDDC8B1FEA944900C692E7 /* Network */,
@@ -592,6 +595,7 @@
 				AEDDDC8D1FEA94A300C692E7 /* NetworkUser.swift in Sources */,
 				A47FD3042014C9FB005C17F1 /* Constants.swift in Sources */,
 				A4BD85471FE5C026002C0DAE /* LoginViewController.swift in Sources */,
+				A415FEDD2015EF8900983B38 /* Functions.swift in Sources */,
 				FA312F011FCBF37200D55F06 /* MainViewController.swift in Sources */,
 				FA023A101FDB1BF500FC7EDF /* Dictionary.swift in Sources */,
 				A456B5B81FDAC44400421186 /* CardView.swift in Sources */,
