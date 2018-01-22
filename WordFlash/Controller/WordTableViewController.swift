@@ -27,7 +27,6 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var histButton: UIButton!
     @IBOutlet var designView: UIView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -53,7 +52,6 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
             bar.backgroundColor = Color.gold
         }
         bar.topItem?.title = (state == .History) ? "History" : "Favorite"
-        
         words = realm.objects(Word.self).filter(NSPredicate(format: state == .History ? "inHistory == true" : "isFavorite == true"))
         tableView.reloadData()
     }

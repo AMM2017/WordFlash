@@ -16,7 +16,6 @@ class LogoutViewController: UIViewController {
         username.text = defaults.object(forKey: "Username") as? String
     }
     
-    
     @IBAction func logout(_ sender: Any) {
         defaults.removeObject(forKey: "Username")
         defaults.removeObject(forKey: "Token")

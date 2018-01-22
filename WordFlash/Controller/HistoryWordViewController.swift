@@ -7,8 +7,7 @@ class HistoryWordViewController: UIViewController {
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var contentViewHist: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    
-    //yep
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +23,7 @@ class HistoryWordViewController: UIViewController {
     }
     
     
-    
-    //custom button
+    // MARK: custom button
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

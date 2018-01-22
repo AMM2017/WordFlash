@@ -14,7 +14,6 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         for word in realm.objects(Word.self) {
@@ -28,8 +27,7 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    
-    //tableView section
+    // MARK: tableView section
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredWords.count
@@ -63,8 +61,7 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
-    
-    //searchBar section
+    // MARK: searchBar section
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //filtering words
@@ -80,7 +77,7 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
-    //custom button
+    // MARK: custom button
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

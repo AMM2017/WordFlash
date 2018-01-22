@@ -9,7 +9,7 @@ class FavoriteWordViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    //yep
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         wordLabel.text = word?.word
@@ -24,7 +24,8 @@ class FavoriteWordViewController: UIViewController {
     }
     
     
-    //custom buttons
+    // MARK: custom buttons
+    
     @IBAction func starPressed(_ sender: Any) {
         //changing isFavorite state
         if word!.isFavorite {

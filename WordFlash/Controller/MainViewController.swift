@@ -157,7 +157,7 @@ extension MainViewController: KolodaViewDataSource {
 }
 
 
-//MARK: star pressed delegate
+// MARK: star pressed delegate
 extension MainViewController: StarPressedDelegate {
     func starPressed(for word:String) {
         try! realm.write{
@@ -177,7 +177,7 @@ extension MainViewController: StarPressedDelegate {
 }
 
 
-//MARK: dictionary random n
+// MARK: dictionary random n
 private func getRandomWords(on count: Int) -> [Word]
 {
     let allWords = Dictionary.sharedInstance.words
