@@ -3,12 +3,15 @@ import UIKit
 class FavoriteWordViewController: UIViewController {
     
     var word:Word?
+    
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    
+    //MARK: ViewController stuff
     
     override func viewDidLoad() {
         super.viewDidLoad()

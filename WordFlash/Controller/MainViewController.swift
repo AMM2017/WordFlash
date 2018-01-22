@@ -10,27 +10,32 @@ import Alamofire
 var realm: Realm = try! Realm()
 let defaults:UserDefaults = UserDefaults.standard
 
+enum SegueTargetMain {
+    case History 
+    case Favorite
+    case Add
+}
+
 class MainViewController: UIViewController{
     
     var words:[Word] = []
     var shuffledWords:[Word] = []
-    var state:State?
-    var weAreGoingToAdd: Bool = true
+    var segueTarget:SegueTargetMain?
+    
     @IBOutlet weak var kolodaView: KolodaView!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet var designView: UIView!
+    
     
     //MARK: ViewController stuff
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         kolodaView.dataSource = self
         kolodaView.delegate = self
-        kolodaView.backgroundColor = UIColor(red: 0.0353, green: 0.0784, blue: 0.1176, alpha: 1.0)
+        kolodaView.backgroundColor = Color.dolphin
         words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
         shuffledWords = (words + getRandomWords(on: 5)).shuffled()
-        print(shuffledWords.count)
         kolodaView.resetCurrentCardIndex()
         kolodaView.reloadData()
         refreshButton.isHidden = true
@@ -43,27 +48,21 @@ class MainViewController: UIViewController{
         words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
-    
-    //MARK: custom buttons stuff
+    //MARK: custom buttons
     
     @IBAction func addWord(_ sender: Any) {
-        weAreGoingToAdd = true
+        segueTarget = .Add
         self.performSegue(withIdentifier: "AddWordSegue", sender: self)
     }
     
     @IBAction func showFavorite(_ sender: Any) {
-        weAreGoingToAdd = false
-        state = .Favorite
+        segueTarget = .Favorite
         self.performSegue(withIdentifier: "TableSegue", sender: self)
     }
     
     @IBAction func showHistory(_ sender: Any) {
-        weAreGoingToAdd = false
-        state = .History
+        segueTarget = .History
         self.performSegue(withIdentifier: "TableSegue", sender: self)
     }
     
@@ -82,33 +81,33 @@ class MainViewController: UIViewController{
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if !weAreGoingToAdd {
+        switch segueTarget! {
+        case .Add:
+            break;
+        case .History:
             guard let destination = segue.destination as? WordsTableViewController
                 else {fatalError("Some Error")}
-            //history or favorite
-            destination.state = state
-        } else {
-            guard let destination = segue.destination as? AddWordViewController
+            destination.state = .History
+        case .Favorite:
+            guard let destination = segue.destination as? WordsTableViewController
                 else {fatalError("Some Error")}
-            //getting all words from db and sending them to addview
-            var alreadyHaveWords: [String] = []
-            for word in realm.objects(Word.self) {
-                alreadyHaveWords.append( word.word )
-            }
-            destination.alreadyHaveWords = alreadyHaveWords
+            destination.state = .Favorite
         }
     }
     
+    
+    // MARK: for kolodaView
     private func update(_ koloda: KolodaView) {
         words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
         shuffledWords = (words + getRandomWords(on: 5)).shuffled()
-        // koloda.applyAppearAnimationIfNeeded()
         koloda.resetCurrentCardIndex()
         koloda.reloadData()
     }
 }
 
+
 // MARK: KolodaViewDelegate
+
 extension MainViewController: KolodaViewDelegate {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
         refreshButton.isHidden = false
@@ -116,7 +115,9 @@ extension MainViewController: KolodaViewDelegate {
     }
 }
 
+
 // MARK: KolodaViewDataSource
+
 extension MainViewController: KolodaViewDataSource {
     
     func kolodaNumberOfCards(_ koloda:KolodaView) -> Int {
@@ -149,11 +150,7 @@ extension MainViewController: KolodaViewDataSource {
     func kolodaShouldApplyAppearAnimation(_ koloda: KolodaView) -> Bool {
         return true
     }
-    
-    /* like or nope
-     func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
-     return Bundle.main.loadNibNamed("OverlayView", owner: self, options: nil)![0] as? OverlayView
-     }*/
+
 }
 
 
@@ -180,11 +177,19 @@ extension MainViewController: StarPressedDelegate {
 // MARK: dictionary random n
 private func getRandomWords(on count: Int) -> [Word]
 {
+    var alreadyHaveWords:[String] = []
+    for word in realm.objects(Word.self) {
+        alreadyHaveWords.append( word.word )
+    }
+    
     let allWords = Dictionary.sharedInstance.words
     var res: Set<Word> = []
     while (res.count < count) {
         let word = Word()
         word.word = allWords[Int(arc4random_uniform(UInt32(allWords.count)))]
+        if alreadyHaveWords.contains(word.word) {
+            continue
+        }
         word.definition = Dictionary.sharedInstance[word.word]
         word.isAddedByUser = false
         res.insert(word)

@@ -12,9 +12,15 @@ class LogoutViewController: UIViewController {
     
     @IBOutlet weak var username: UILabel!
     
+    
+    //MARK: ViewController stuff
+    
     override func viewDidLoad() {
         username.text = defaults.object(forKey: "Username") as? String
     }
+    
+    
+    // MARK: custom buttons
     
     @IBAction func logout(_ sender: Any) {
         defaults.removeObject(forKey: "Username")

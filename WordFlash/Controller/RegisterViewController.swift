@@ -18,6 +18,9 @@ class RegisterViewController: UIViewController, NetworkDelegate {
     @IBOutlet weak var firstPasswordTextField: UITextField!
     @IBOutlet weak var secondPasswordTextField: UITextField!
     
+    
+    //MARK: ViewController stuff
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         spinner.isHidden = true
@@ -31,6 +34,8 @@ class RegisterViewController: UIViewController, NetworkDelegate {
         secondPasswordTextField.delegate = self
     }
 
+    
+    // MARK: custom buttons
     
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

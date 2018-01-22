@@ -10,9 +10,12 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
     var alreadyHaveWords: [String] = []
     var filteredWords: [String] = []
     var charsInSearchBar = 0
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    
+    //MARK: ViewController stuff
     
     override func viewDidLoad() {
         super.viewDidLoad()

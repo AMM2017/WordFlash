@@ -4,7 +4,7 @@ import RealmSwift
 
 enum State {
     case History
-    case Favorite
+    case Favorite 
 }
 
 enum SegueTarget {
@@ -26,6 +26,9 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var favoButton: UIButton!
     @IBOutlet weak var histButton: UIButton!
     @IBOutlet var designView: UIView!
+    
+    
+    //MARK: ViewController stuff
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,6 +17,9 @@ class LoginViewController: UIViewController, NetworkDelegate {
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var createButton: UIButton!
     
+    
+    //MARK: ViewController stuff
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginTextField.layer.borderColor = (UIColor.white).cgColor
@@ -26,20 +29,8 @@ class LoginViewController: UIViewController, NetworkDelegate {
         spinner.isHidden = true
     }
     
-    /*@IBAction func loginTextChanged(_ sender: Any) {
-        if loginTextField.text != "" {
-            loginTextField.layer.borderColor = (UIColor.white).cgColor
-        }
-    }
     
-    @IBAction func passTextChanged(_ sender: Any) {
-        if passwordTextField.text != "" {
-            passwordTextField.layer.borderColor = (UIColor.white).cgColor
-        }
-    }*/
-    
-    
-    //MARK: custom
+    //MARK: custom buttons
     
     
     @IBAction func back(_ sender: Any) {

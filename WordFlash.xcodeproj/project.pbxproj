@@ -175,6 +175,35 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		A415FED92015E78B00983B38 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A42C5B941FD2BE3A0063D265 /* WordModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A415FEDA2015E79A00983B38 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A47FD3032014C9FB005C17F1 /* Constants.swift */,
+				A474E0481FF39DDE000205F6 /* UIExtensions.swift */,
+				A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */,
+				AEDDDC8B1FEA944900C692E7 /* Network */,
+				A415FEDB2015E7A400983B38 /* Dictionary */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A415FEDB2015E7A400983B38 /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				FA023A0F1FDB1BF500FC7EDF /* Dictionary.swift */,
+				FA023A0D1FDB1BE400FC7EDF /* dictionary.json */,
+			);
+			path = Dictionary;
+			sourceTree = "<group>";
+		};
 		AEDDDC8B1FEA944900C692E7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,18 +249,13 @@
 		FA312EFD1FCBF37200D55F06 /* WordFlash */ = {
 			isa = PBXGroup;
 			children = (
-				A415FED82015DCBA00983B38 /* Controller */,
+				A415FED92015E78B00983B38 /* Model */,
 				A415FED62015DC8B00983B38 /* View */,
-				AEDDDC8B1FEA944900C692E7 /* Network */,
-				FA023A0D1FDB1BE400FC7EDF /* dictionary.json */,
-				FA023A0F1FDB1BF500FC7EDF /* Dictionary.swift */,
+				A415FED82015DCBA00983B38 /* Controller */,
+				A415FEDA2015E79A00983B38 /* Helpers */,
 				FA312EFE1FCBF37200D55F06 /* AppDelegate.swift */,
 				FA312F051FCBF37200D55F06 /* Assets.xcassets */,
 				FA312F0A1FCBF37200D55F06 /* Info.plist */,
-				A42C5B941FD2BE3A0063D265 /* WordModel.swift */,
-				A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */,
-				A474E0481FF39DDE000205F6 /* UIExtensions.swift */,
-				A47FD3032014C9FB005C17F1 /* Constants.swift */,
 			);
 			path = WordFlash;
 			sourceTree = "<group>";

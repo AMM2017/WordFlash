@@ -3,11 +3,14 @@ import UIKit
 class HistoryWordViewController: UIViewController {
     
     var word:Word?
+    
     @IBOutlet weak var definitionLabel: UILabel!
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var contentViewHist: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
 
+    
+    //MARK: ViewController stuff
     
     override func viewDidLoad() {
         super.viewDidLoad()
