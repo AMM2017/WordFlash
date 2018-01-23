@@ -27,6 +27,8 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var histButton: UIButton!
     @IBOutlet var designView: UIView!
     
+    @IBAction func myUnwindAction(segue: UIStoryboardSegue) {}
+    
     
     //MARK: ViewController stuff
     

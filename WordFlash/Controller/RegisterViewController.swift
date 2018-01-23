@@ -98,7 +98,7 @@ class RegisterViewController: UIViewController, NetworkDelegate {
         if flag {
             //TODO: defaults.set(token, forKey: "Token")
             defaults.set(loginTextField.text, forKey: "Username")
-            self.dismiss(animated: false, completion: nil)
+            performSegue(withIdentifier: "unwind", sender: nil)
         } else {
             firstPasswordTextField.layer.borderColor = (UIColor.red).cgColor
             secondPasswordTextField.layer.borderColor = (UIColor.red).cgColor

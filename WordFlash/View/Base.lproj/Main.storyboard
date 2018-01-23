@@ -61,8 +61,9 @@
                                     <navigationItem id="Se9-AH-GEw">
                                         <barButtonItem key="leftBarButtonItem" style="done" id="bR0-Nm-BNw">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J0x-6W-veH">
-                                                <rect key="frame" x="16" y="4" width="35" height="36"/>
+                                                <rect key="frame" x="16" y="4" width="55" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="30" maxY="0.0"/>
                                                 <state key="normal" image="back">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -498,6 +499,7 @@
                         <outlet property="okButton" destination="liN-FX-qEW" id="9eH-Z6-AqP"/>
                         <outlet property="passwordTextField" destination="gEJ-ah-qbf" id="XJU-aG-Olq"/>
                         <outlet property="spinner" destination="foB-Pm-S31" id="DVt-m1-RGX"/>
+                        <segue destination="qfq-7E-3aX" kind="show" identifier="unwind" id="bJt-pv-91f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03e-54-0K8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -672,6 +674,7 @@
                         <outlet property="okButton" destination="EeW-I7-IkZ" id="JOm-Cw-tMT"/>
                         <outlet property="secondPasswordTextField" destination="C9Y-fU-VR3" id="Ppr-c8-xsy"/>
                         <outlet property="spinner" destination="AW3-DL-ZUt" id="ev5-Lc-3Hr"/>
+                        <segue destination="qfq-7E-3aX" kind="show" identifier="unwind" id="k0e-tJ-JLH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwf-5Q-16G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -805,10 +808,10 @@
                                             </button>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="e9m-N8-XIw">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UDZ-Md-5nA">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UDZ-Md-5nA">
                                                 <rect key="frame" x="304" y="0.0" width="55" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <inset key="imageEdgeInsets" minX="20" minY="10" maxX="10" maxY="10"/>
+                                                <inset key="imageEdgeInsets" minX="30" minY="10" maxX="0.0" maxY="10"/>
                                                 <state key="normal" image="log">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -990,7 +993,8 @@
         <image name="smallorstar" width="25" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XaG-9e-gSR"/>
-        <segue reference="0kH-YX-fw8"/>
+        <segue reference="k0e-tJ-JLH"/>
+        <segue reference="YbV-ZT-VNN"/>
+        <segue reference="T1E-xy-7mH"/>
     </inferredMetricsTieBreakers>
 </document>

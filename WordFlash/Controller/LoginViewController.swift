@@ -34,7 +34,7 @@ class LoginViewController: UIViewController, NetworkDelegate {
     
     
     @IBAction func back(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "unwind", sender: nil)
     }
     
     
@@ -89,7 +89,8 @@ class LoginViewController: UIViewController, NetworkDelegate {
         if token != "" {
             defaults.set(token, forKey: "Token")
             defaults.set(loginTextField.text, forKey: "Username")
-            self.dismiss(animated: false, completion: nil)
+            performSegue(withIdentifier: "unwind", sender: nil)
+            //self.dismiss(animated: false, completion: nil)
         } else {
             loginTextField.layer.borderColor = (UIColor.red).cgColor
             loginTextField.shake()
