@@ -9,9 +9,11 @@
 import Foundation
 
 
-// MARK: dictionary random n
 
 enum Functions {
+    
+    
+    // MARK: dictionary random n
     static func getRandomWords(on count: Int) -> [Word]
     {
         var alreadyHaveWords:[String] = []
