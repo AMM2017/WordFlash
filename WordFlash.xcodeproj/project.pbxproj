@@ -18,6 +18,7 @@
 		A42C5B9B1FD2C95B0063D265 /* HistoryWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B9A1FD2C95B0063D265 /* HistoryWordViewController.swift */; };
 		A42C5B9D1FD2CD9A0063D265 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42C5B9C1FD2CD9A0063D265 /* AddWordViewController.swift */; };
 		A456B5B81FDAC44400421186 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456B5B71FDAC44400421186 /* CardView.swift */; };
+		A45779AA20187CFC00AEC98A /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45779A920187CFC00AEC98A /* Structures.swift */; };
 		A46FF8B41FF2BBDF009AB3F0 /* LogoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46FF8B31FF2BBDF009AB3F0 /* LogoutViewController.swift */; };
 		A474E0491FF39DDE000205F6 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A474E0481FF39DDE000205F6 /* UIExtensions.swift */; };
 		A47FD3042014C9FB005C17F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47FD3032014C9FB005C17F1 /* Constants.swift */; };
@@ -70,6 +71,7 @@
 		A42C5B9A1FD2C95B0063D265 /* HistoryWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWordViewController.swift; sourceTree = "<group>"; };
 		A42C5B9C1FD2CD9A0063D265 /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		A456B5B71FDAC44400421186 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A45779A920187CFC00AEC98A /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
 		A46FF8B31FF2BBDF009AB3F0 /* LogoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewController.swift; sourceTree = "<group>"; };
 		A474E0481FF39DDE000205F6 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		A47FD3032014C9FB005C17F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */,
 				AEDDDC8B1FEA944900C692E7 /* Network */,
 				A415FEDB2015E7A400983B38 /* Dictionary */,
+				A45779A920187CFC00AEC98A /* Structures.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				A46FF8B41FF2BBDF009AB3F0 /* LogoutViewController.swift in Sources */,
 				AEDDDC8F1FEA94BC00C692E7 /* NetworkDelegate.swift in Sources */,
 				A42C5B971FD2BE490063D265 /* WordTableCell.swift in Sources */,
+				A45779AA20187CFC00AEC98A /* Structures.swift in Sources */,
 				A42C5B9D1FD2CD9A0063D265 /* AddWordViewController.swift in Sources */,
 				A42C5B991FD2C0B50063D265 /* FavoriteWordViewController.swift in Sources */,
 				A42C5B931FD2BDA90063D265 /* WordTableViewController.swift in Sources */,

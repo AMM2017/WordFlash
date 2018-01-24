@@ -6,10 +6,8 @@ import RealmSwift
 class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     let dict: Dictionary = Dictionary.sharedInstance
-    var allWords: [String] = []
     var alreadyHaveWords: [String] = []
     var filteredWords: [String] = []
-    var charsInSearchBar = 0
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -22,8 +20,7 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
         for word in realm.objects(Word.self) {
             alreadyHaveWords.append( word.word )
         }
-        allWords = dict.words
-        filteredWords = allWords
+        filteredWords = dict.words
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
@@ -68,16 +65,13 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //filtering words
-        if (searchText.count > charsInSearchBar) {
-            charsInSearchBar += 1
-            filteredWords = filteredWords.filter { $0.capitalized.starts(with: searchText.capitalized) }
+        if searchText.count == 0 {
+            filteredWords = dict.words
         } else {
-            charsInSearchBar -= 1
-            filteredWords = allWords.filter { $0.capitalized.starts(with: searchText.capitalized) }
+            filteredWords = allWords.findWordsWithPrefix(prefix: searchText)
         }
         tableView.reloadData()
     }
-    
     
     
     // MARK: custom button
@@ -85,7 +79,6 @@ class AddWordViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
     
 }
 

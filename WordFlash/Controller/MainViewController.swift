@@ -1,14 +1,5 @@
 import UIKit
-import RealmSwift
 import Koloda
-import paper_onboarding
-import SwiftyJSON
-import Alamofire
-
-
-//global
-var realm: Realm = try! Realm()
-let defaults:UserDefaults = UserDefaults.standard
 
 enum SegueTargetMain {
     case History 
