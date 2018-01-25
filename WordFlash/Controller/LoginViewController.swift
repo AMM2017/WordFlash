@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController, NetworkDelegate {
     
+    var wasLoggedIn = true
+    
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var loginTextField: UITextField!
@@ -34,7 +36,10 @@ class LoginViewController: UIViewController, NetworkDelegate {
     
     
     @IBAction func back(_ sender: Any) {
-        performSegue(withIdentifier: "unwind", sender: nil)
+        let presentingViewController = self.presentingViewController
+        self.dismiss(animated: false, completion: {
+            self.wasLoggedIn ? presentingViewController!.dismiss(animated: true, completion: {}) : nil
+        })
     }
     
     
@@ -89,8 +94,10 @@ class LoginViewController: UIViewController, NetworkDelegate {
         if token != "" {
             defaults.set(token, forKey: "Token")
             defaults.set(loginTextField.text, forKey: "Username")
-            performSegue(withIdentifier: "unwind", sender: nil)
-            //self.dismiss(animated: false, completion: nil)
+            let presentingViewController = self.presentingViewController
+            self.dismiss(animated: false, completion: {
+                self.wasLoggedIn ? presentingViewController!.dismiss(animated: true, completion: {}) : nil
+            })
         } else {
             loginTextField.layer.borderColor = (UIColor.red).cgColor
             loginTextField.shake()

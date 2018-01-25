@@ -194,9 +194,9 @@
 				A415FEDC2015EF8900983B38 /* Functions.swift */,
 				A474E0481FF39DDE000205F6 /* UIExtensions.swift */,
 				A4DC2ECC1FDC174400317ED8 /* MutableCollections+Shuffle.swift */,
+				A45779A920187CFC00AEC98A /* Structures.swift */,
 				AEDDDC8B1FEA944900C692E7 /* Network */,
 				A415FEDB2015E7A400983B38 /* Dictionary */,
-				A45779A920187CFC00AEC98A /* Structures.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

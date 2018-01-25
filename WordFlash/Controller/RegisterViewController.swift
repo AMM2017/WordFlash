@@ -42,15 +42,15 @@ class RegisterViewController: UIViewController, NetworkDelegate {
     }
     
     @IBAction func didButtonOkPressed(_ sender: Any) {
-        if loginTextField.text == "" {
+        guard loginTextField.text != "" else {
             loginTextField.shake()
             return
         }
-        if firstPasswordTextField.text == "" {
+        guard firstPasswordTextField.text != "" else {
             firstPasswordTextField.shake()
             return
         }
-        if secondPasswordTextField.text == "" || secondPasswordTextField.text != firstPasswordTextField.text {
+        guard (secondPasswordTextField.text != "" && secondPasswordTextField.text == firstPasswordTextField.text) else {
             secondPasswordTextField.shake()
             return
         }
@@ -98,7 +98,12 @@ class RegisterViewController: UIViewController, NetworkDelegate {
         if flag {
             //TODO: defaults.set(token, forKey: "Token")
             defaults.set(loginTextField.text, forKey: "Username")
-            performSegue(withIdentifier: "unwind", sender: nil)
+            let presentingViewController = self.presentingViewController
+            let presentingViewController1 = presentingViewController?.presentingViewController
+            let wasLoggedIn = (presentingViewController as! LoginViewController).wasLoggedIn
+            self.dismiss(animated: false, completion: {
+                presentingViewController!.dismiss(animated: false, completion: wasLoggedIn ? {presentingViewController1!.dismiss(animated: false, completion: {})} : nil )
+            })
         } else {
             firstPasswordTextField.layer.borderColor = (UIColor.red).cgColor
             secondPasswordTextField.layer.borderColor = (UIColor.red).cgColor

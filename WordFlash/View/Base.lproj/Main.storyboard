@@ -499,7 +499,6 @@
                         <outlet property="okButton" destination="liN-FX-qEW" id="9eH-Z6-AqP"/>
                         <outlet property="passwordTextField" destination="gEJ-ah-qbf" id="XJU-aG-Olq"/>
                         <outlet property="spinner" destination="foB-Pm-S31" id="DVt-m1-RGX"/>
-                        <segue destination="qfq-7E-3aX" kind="show" identifier="unwind" id="bJt-pv-91f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03e-54-0K8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -674,7 +673,6 @@
                         <outlet property="okButton" destination="EeW-I7-IkZ" id="JOm-Cw-tMT"/>
                         <outlet property="secondPasswordTextField" destination="C9Y-fU-VR3" id="Ppr-c8-xsy"/>
                         <outlet property="spinner" destination="AW3-DL-ZUt" id="ev5-Lc-3Hr"/>
-                        <segue destination="qfq-7E-3aX" kind="show" identifier="unwind" id="k0e-tJ-JLH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fwf-5Q-16G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -993,7 +991,6 @@
         <image name="smallorstar" width="25" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="k0e-tJ-JLH"/>
         <segue reference="YbV-ZT-VNN"/>
         <segue reference="T1E-xy-7mH"/>
     </inferredMetricsTieBreakers>

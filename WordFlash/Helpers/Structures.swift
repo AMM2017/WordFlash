@@ -34,7 +34,7 @@ class TrieNode<T: Hashable> {
 
 /// A trie data structure containing words.  Each node is a single
 /// character of a word.
-class Trie: NSObject, NSCoding {
+class Trie: NSObject {
     
     typealias Node = TrieNode<Character>
     
@@ -58,24 +58,6 @@ class Trie: NSObject, NSCoding {
         super.init()
     }
     
-    // MARK: NSCoding
-    /// Initializes the trie with words from an archive
-    ///
-    /// - Parameter decoder: Decodes the archive
-    required convenience init?(coder decoder: NSCoder) {
-        self.init()
-        let words = decoder.decodeObject(forKey: "words") as? [String]
-        for word in words! {
-            self.insert(word: word)
-        }
-    }
-    /// Encodes the words in the trie by putting them in an array then encoding
-    /// the array.
-    ///
-    /// - Parameter coder: The object that will encode the array
-    func encode(with coder: NSCoder) {
-        coder.encode(self.words, forKey: "words")
-    }
 }
 
 // MARK: - Adds methods: insert, remove, contains

@@ -27,8 +27,6 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var histButton: UIButton!
     @IBOutlet var designView: UIView!
     
-    @IBAction func myUnwindAction(segue: UIStoryboardSegue) {}
-    
     
     //MARK: ViewController stuff
     
@@ -137,6 +135,9 @@ class WordsTableViewController: UIViewController, UITableViewDelegate, UITableVi
         case .Add:
             break
         case .Login:
+            guard let destination = segue.destination as? LoginViewController
+                else { fatalError("Some Error") }
+            destination.wasLoggedIn = false
             break
         case .Logout:
             break
