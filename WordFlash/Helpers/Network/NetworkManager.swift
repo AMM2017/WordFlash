@@ -29,9 +29,7 @@ class NetworkManager {
             case .success, .failure:
                 self.delegate?.didReceiveToken(token: JSON(response.data)["token"].stringValue)
             }
-            
         }
-        
         return nil
     }
     

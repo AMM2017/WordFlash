@@ -233,12 +233,12 @@
 		FA312EF21FCBF37100D55F06 = {
 			isa = PBXGroup;
 			children = (
+				DCE79CD57675F69FC76EC40F /* Frameworks */,
+				8C16F6243610198A2AA25BA5 /* Pods */,
+				FA312EFC1FCBF37200D55F06 /* Products */,
 				FA312EFD1FCBF37200D55F06 /* WordFlash */,
 				FA312F121FCBF37200D55F06 /* WordFlashTests */,
 				FA312F1D1FCBF37200D55F06 /* WordFlashUITests */,
-				FA312EFC1FCBF37200D55F06 /* Products */,
-				8C16F6243610198A2AA25BA5 /* Pods */,
-				DCE79CD57675F69FC76EC40F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

@@ -25,6 +25,16 @@
       "idiom" : "iphone",
       "filename" : "Ресурс 25@3x.png",
       "scale" : "3x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "Ресурс 25@2x-1.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "Ресурс 25@2x-2.png",
+      "scale" : "2x"
     }
   ],
   "info" : {
