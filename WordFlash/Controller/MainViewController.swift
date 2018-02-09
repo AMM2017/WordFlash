@@ -1,5 +1,6 @@
 import UIKit
 import Koloda
+import paper_onboarding
 
 enum SegueTargetMain {
     case History 
@@ -16,7 +17,7 @@ class MainViewController: UIViewController{
     @IBOutlet weak var kolodaView: KolodaView!
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet var designView: UIView!
-    
+    @IBOutlet weak var onboarding: PaperOnboarding!
     
     //MARK: ViewController stuff
     
@@ -31,6 +32,28 @@ class MainViewController: UIViewController{
         kolodaView.reloadData()
         refreshButton.isHidden = true
         refreshButton.isEnabled = false
+        
+        //onboarding
+        if defaults.object(forKey: "ShowedOnboarding") == nil {
+            onboarding.dataSource = self
+            onboarding.translatesAutoresizingMaskIntoConstraints = false
+            let doubletap = UITapGestureRecognizer(target: self, action: #selector(self.hideOnboarding))
+            doubletap.numberOfTapsRequired = 3
+            onboarding.addGestureRecognizer(doubletap)
+            onboarding.isHidden = false
+            
+            // add constraints
+            for attribute: NSLayoutAttribute in [.left, .right, .top, .bottom] {
+                let constraint = NSLayoutConstraint(item: onboarding,
+                                                    attribute: attribute,
+                                                    relatedBy: .equal,
+                                                    toItem: view,
+                                                    attribute: attribute,
+                                                    multiplier: 1,
+                                                    constant: 0)
+                view.addConstraint(constraint)
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +93,11 @@ class MainViewController: UIViewController{
         })
     }
     
+    
+    @objc func hideOnboarding() {
+        onboarding.isHidden = true
+        defaults.set(true, forKey: "ShowedOnboarding")
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segueTarget! {
@@ -161,6 +189,58 @@ extension MainViewController: StarPressedDelegate {
                 realm.add(model)
             }
         }
+    }
+}
+
+
+// MARK: paper onboarding date sourse
+extension MainViewController: PaperOnboardingDataSource {
+    func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo {
+        return [
+            OnboardingItemInfo(imageName: #imageLiteral(resourceName: "login"),
+                               title: "DOUBLE TAP",
+                               description: "to see definition",
+                               iconName: #imageLiteral(resourceName: "login"),
+                               color: Color.dolphin,
+                               titleColor: UIColor.white,
+                               descriptionColor: UIColor.white,
+                               titleFont: UIFont.italicSystemFont(ofSize: 25),
+                               descriptionFont: UIFont.italicSystemFont(ofSize: 18)),
+            
+            OnboardingItemInfo(imageName: #imageLiteral(resourceName: "login"),
+                               title: "SWIPE LEFT",
+                               description: "if you know definition",
+                               iconName: #imageLiteral(resourceName: "login"),
+                               color: Color.dolphin,
+                               titleColor: UIColor.white,
+                               descriptionColor: UIColor.white,
+                               titleFont: UIFont.italicSystemFont(ofSize: 25),
+                               descriptionFont: UIFont.italicSystemFont(ofSize: 18)),
+            
+            OnboardingItemInfo(imageName: #imageLiteral(resourceName: "login"),
+                               title: "SWIPE RIGHT",
+                               description: "if you don't",
+                               iconName: #imageLiteral(resourceName: "login"),
+                               color: Color.dolphin,
+                               titleColor: UIColor.white,
+                               descriptionColor: UIColor.white,
+                               titleFont: UIFont.italicSystemFont(ofSize: 25),
+                               descriptionFont: UIFont.italicSystemFont(ofSize: 18)),
+            
+            OnboardingItemInfo(imageName: #imageLiteral(resourceName: "login"),
+                               title: "PRESS STAR",
+                               description: "to add to \"favorite\"",
+                               iconName: #imageLiteral(resourceName: "login"),
+                               color: Color.dolphin,
+                               titleColor: UIColor.white,
+                               descriptionColor: UIColor.white,
+                               titleFont: UIFont.italicSystemFont(ofSize: 25),
+                               descriptionFont: UIFont.italicSystemFont(ofSize: 18))
+            ][index]
+    }
+    
+    func onboardingItemsCount() -> Int {
+        return 4
     }
 }
 

@@ -183,20 +183,28 @@
                                     <constraint firstItem="8RE-No-6VM" firstAttribute="centerY" secondItem="Vf2-vg-p02" secondAttribute="centerY" id="Nbt-VB-CnT"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dh9-78-Aq2" customClass="PaperOnboarding" customModule="paper_onboarding">
+                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="dh9-78-Aq2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="6ts-nW-gnZ"/>
                             <constraint firstItem="stl-gz-YJZ" firstAttribute="centerY" secondItem="iws-L1-U4K" secondAttribute="centerY" id="7ZQ-t9-yWK"/>
                             <constraint firstItem="f8e-ST-3kr" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="K3K-IS-N0c"/>
                             <constraint firstItem="Nry-7b-1Li" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="OZ8-ME-DQR"/>
+                            <constraint firstItem="dh9-78-Aq2" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Or3-GM-Dse"/>
                             <constraint firstItem="Vf2-vg-p02" firstAttribute="centerY" secondItem="iws-L1-U4K" secondAttribute="centerY" id="Q2z-tw-7Xr"/>
                             <constraint firstItem="f8e-ST-3kr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RrA-dk-qsC"/>
                             <constraint firstItem="Vf2-vg-p02" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UfV-fN-fGq"/>
                             <constraint firstItem="iws-L1-U4K" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Us1-pt-iRY"/>
                             <constraint firstItem="iws-L1-U4K" firstAttribute="leading" secondItem="Vf2-vg-p02" secondAttribute="trailing" id="Z9o-4C-xGa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iws-L1-U4K" secondAttribute="bottom" constant="20" id="ZaR-UM-mzH"/>
+                            <constraint firstItem="dh9-78-Aq2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Zey-ij-WPC"/>
                             <constraint firstItem="stl-gz-YJZ" firstAttribute="height" secondItem="iws-L1-U4K" secondAttribute="height" id="aSK-Ya-BVC"/>
                             <constraint firstItem="Vf2-vg-p02" firstAttribute="height" secondItem="iws-L1-U4K" secondAttribute="height" id="eez-Of-EhM"/>
+                            <constraint firstItem="dh9-78-Aq2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fWU-en-WfE"/>
                             <constraint firstItem="Nry-7b-1Li" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fga-LB-AvI"/>
                             <constraint firstItem="stl-gz-YJZ" firstAttribute="leading" secondItem="iws-L1-U4K" secondAttribute="trailing" id="jTu-s8-qjz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="stl-gz-YJZ" secondAttribute="trailing" id="oEb-3u-UnI"/>
@@ -208,6 +216,7 @@
                     <connections>
                         <outlet property="designView" destination="8bC-Xf-vdC" id="jFX-g0-wZZ"/>
                         <outlet property="kolodaView" destination="f8e-ST-3kr" id="STc-TF-U3r"/>
+                        <outlet property="onboarding" destination="dh9-78-Aq2" id="B8C-5J-sWV"/>
                         <outlet property="refreshButton" destination="Nry-7b-1Li" id="toN-T5-bq9"/>
                         <segue destination="qfq-7E-3aX" kind="show" identifier="TableSegue" id="NwY-sA-BVe"/>
                         <segue destination="YEE-GT-pdC" kind="show" identifier="AddWordSegue" id="T1E-xy-7mH"/>
@@ -215,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="-103"/>
+            <point key="canvasLocation" x="160.80000000000001" y="-103.89805097451276"/>
         </scene>
         <!--Logout View Controller-->
         <scene sceneID="nNE-Q6-YBa">

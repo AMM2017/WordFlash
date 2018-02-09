@@ -27,7 +27,7 @@ class NetworkManager {
         Alamofire.request(url, method:.post, parameters:parameters).responseJSON { response in
             switch response.result {
             case .success, .failure:
-                self.delegate?.didReceiveToken(token: JSON(response.data)["token"].stringValue)
+                self.delegate?.didReceiveToken(token: JSON(response.data!)["token"].stringValue)
             }
         }
         return nil
@@ -44,7 +44,7 @@ class NetworkManager {
         Alamofire.request(url, method:.post, parameters:parameters).responseJSON { response in
             switch response.result {
             case .success:
-                self.delegate?.didRegisterUser(register: JSON(response.data)["username"].stringValue != "")
+                self.delegate?.didRegisterUser(register: JSON(response.data!)["username"].stringValue != "")
             case .failure:
                 self.delegate?.didRegisterUser(register: false)
             }
