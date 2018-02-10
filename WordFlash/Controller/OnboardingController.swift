@@ -52,40 +52,40 @@ class OnboardingController: UIViewController {
 extension OnboardingController: PaperOnboardingDataSource {
     func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo {
         return [
-            OnboardingItemInfo(imageName: #imageLiteral(resourceName: "login"),
+            OnboardingItemInfo(imageName: #imageLiteral(resourceName: "obtap"),
                                title: "DOUBLE TAP",
                                description: "to see definition",
-                               iconName: #imageLiteral(resourceName: "login"),
+                               iconName: UIImage(),
                                color: Color.dolphin,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: UIFont.italicSystemFont(ofSize: 25),
                                descriptionFont: UIFont.italicSystemFont(ofSize: 18)),
             
-            OnboardingItemInfo(imageName: #imageLiteral(resourceName: "login"),
+            OnboardingItemInfo(imageName: #imageLiteral(resourceName: "obleft"),
                                title: "SWIPE LEFT",
                                description: "if you know definition",
-                               iconName: #imageLiteral(resourceName: "login"),
+                               iconName: UIImage(),
                                color: Color.dolphin,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: UIFont.italicSystemFont(ofSize: 25),
                                descriptionFont: UIFont.italicSystemFont(ofSize: 18)),
             
-            OnboardingItemInfo(imageName: #imageLiteral(resourceName: "login"),
+            OnboardingItemInfo(imageName: #imageLiteral(resourceName: "obright"),
                                title: "SWIPE RIGHT",
                                description: "if you don't",
-                               iconName: #imageLiteral(resourceName: "login"),
+                               iconName: UIImage(),
                                color: Color.dolphin,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: UIFont.italicSystemFont(ofSize: 25),
                                descriptionFont: UIFont.italicSystemFont(ofSize: 18)),
             
-            OnboardingItemInfo(imageName: #imageLiteral(resourceName: "login"),
+            OnboardingItemInfo(imageName: #imageLiteral(resourceName: "obstar"),
                                title: "PRESS STAR",
                                description: "to add to \"favorite\"",
-                               iconName: #imageLiteral(resourceName: "login"),
+                               iconName: UIImage(),
                                color: Color.dolphin,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
@@ -110,7 +110,11 @@ extension OnboardingController: PaperOnboardingDelegate {
             UIView.animate(withDuration: 0.4, animations: {
                 self.getStartedButton.alpha = 1
             })
-        } else {
+        }
+    }
+    
+    func onboardingWillTransitonToIndex(_ index: Int) {
+        if index != 3 {
             getStartedButton.isEnabled = false
             UIView.animate(withDuration: 0.2, animations: {
                 self.getStartedButton.alpha = 0

@@ -125,7 +125,7 @@
                                 <rect key="frame" x="138" y="537" width="99" height="30"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                 <state key="normal" title="GET STARTED">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="1" green="0.91863861099999999" blue="0.0252380787" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="hideOnboarding" destination="erm-1Y-Cvu" eventType="touchUpInside" id="W4P-Yo-e1y"/>
