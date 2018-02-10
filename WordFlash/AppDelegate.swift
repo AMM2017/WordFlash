@@ -22,6 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for word in dict.words {
             allWords.insert(word: word)
         }
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        var initialViewController = sb.instantiateViewController(withIdentifier: "Onboarding")
+        
+        if defaults.bool(forKey: "ShowedOnboarding") {
+            initialViewController = sb.instantiateViewController(withIdentifier: "Main")
+        }
+        
+        window?.rootViewController = initialViewController
+        window?.makeKeyAndVisible()
+        
         return true
         
     }
