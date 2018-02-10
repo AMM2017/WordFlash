@@ -187,6 +187,17 @@
                                 <rect key="frame" x="0.0" y="10" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52N-LS-NZO">
+                                <rect key="frame" x="138" y="537" width="99" height="30"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
+                                <state key="normal" title="GET STARTED">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="hideOnboarding" destination="BYZ-38-t0r" eventType="touchUpInside" id="eEK-GM-Wiy"/>
+                                    <action selector="refresh:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eGH-5c-y0x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.035294117649999998" green="0.078431372550000003" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -199,10 +210,12 @@
                             <constraint firstItem="f8e-ST-3kr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RrA-dk-qsC"/>
                             <constraint firstItem="Vf2-vg-p02" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UfV-fN-fGq"/>
                             <constraint firstItem="iws-L1-U4K" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Us1-pt-iRY"/>
+                            <constraint firstItem="52N-LS-NZO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Xkf-xJ-vec"/>
                             <constraint firstItem="iws-L1-U4K" firstAttribute="leading" secondItem="Vf2-vg-p02" secondAttribute="trailing" id="Z9o-4C-xGa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iws-L1-U4K" secondAttribute="bottom" constant="20" id="ZaR-UM-mzH"/>
                             <constraint firstItem="dh9-78-Aq2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Zey-ij-WPC"/>
                             <constraint firstItem="stl-gz-YJZ" firstAttribute="height" secondItem="iws-L1-U4K" secondAttribute="height" id="aSK-Ya-BVC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="52N-LS-NZO" secondAttribute="bottom" constant="100" id="cWd-TT-KFo"/>
                             <constraint firstItem="Vf2-vg-p02" firstAttribute="height" secondItem="iws-L1-U4K" secondAttribute="height" id="eez-Of-EhM"/>
                             <constraint firstItem="dh9-78-Aq2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fWU-en-WfE"/>
                             <constraint firstItem="Nry-7b-1Li" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fga-LB-AvI"/>
@@ -215,6 +228,7 @@
                     </view>
                     <connections>
                         <outlet property="designView" destination="8bC-Xf-vdC" id="jFX-g0-wZZ"/>
+                        <outlet property="getStartedButton" destination="52N-LS-NZO" id="HIV-7s-Jdh"/>
                         <outlet property="kolodaView" destination="f8e-ST-3kr" id="STc-TF-U3r"/>
                         <outlet property="onboarding" destination="dh9-78-Aq2" id="B8C-5J-sWV"/>
                         <outlet property="refreshButton" destination="Nry-7b-1Li" id="toN-T5-bq9"/>

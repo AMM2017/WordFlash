@@ -18,6 +18,7 @@ class MainViewController: UIViewController{
     @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet var designView: UIView!
     @IBOutlet weak var onboarding: PaperOnboarding!
+    @IBOutlet weak var getStartedButton: UIButton!
     
     //MARK: ViewController stuff
     
@@ -36,10 +37,8 @@ class MainViewController: UIViewController{
         //onboarding
         if defaults.object(forKey: "ShowedOnboarding") == nil {
             onboarding.dataSource = self
+            onboarding.delegate = self
             onboarding.translatesAutoresizingMaskIntoConstraints = false
-            let doubletap = UITapGestureRecognizer(target: self, action: #selector(self.hideOnboarding))
-            doubletap.numberOfTapsRequired = 3
-            onboarding.addGestureRecognizer(doubletap)
             onboarding.isHidden = false
             
             // add constraints
@@ -94,9 +93,11 @@ class MainViewController: UIViewController{
     }
     
     
-    @objc func hideOnboarding() {
+    @IBAction func hideOnboarding() {
         onboarding.isHidden = true
-        defaults.set(true, forKey: "ShowedOnboarding")
+        getStartedButton.isEnabled = false
+        getStartedButton.isHidden = true
+      //  defaults.set(true, forKey: "ShowedOnboarding")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -242,7 +243,28 @@ extension MainViewController: PaperOnboardingDataSource {
     func onboardingItemsCount() -> Int {
         return 4
     }
+    
 }
 
+
+// MARK: paper onboarding delegate
+extension MainViewController: PaperOnboardingDelegate {
+    
+    func onboardingDidTransitonToIndex(_ index: Int) {
+        if index == 3 {
+            getStartedButton.isEnabled = true
+            UIView.animate(withDuration: 0.4, animations: {
+                self.getStartedButton.alpha = 1
+            })
+        } else {
+            getStartedButton.isEnabled = false
+            UIView.animate(withDuration: 0.4, animations: {
+                self.getStartedButton.alpha = 0
+            })
+        }
+    }
+    
+    
+}
 
 
