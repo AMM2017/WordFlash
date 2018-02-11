@@ -36,7 +36,7 @@ class NetworkManager {
     func register(_ user: NetworkUser) {
         let parameters: Parameters = [
             "username": user.username ?? "",
-            "password": user.password ?? ""
+        "password": user.password ?? ""
         ]
         
         let url = "https://wordflash.herokuapp.com/register/"

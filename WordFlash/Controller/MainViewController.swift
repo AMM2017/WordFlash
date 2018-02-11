@@ -24,6 +24,7 @@ class MainViewController: UIViewController{
         super.viewDidLoad()
         kolodaView.dataSource = self
         kolodaView.delegate = self
+        
         kolodaView.backgroundColor = Color.dolphin
         words = realm.objects(Word.self).filter(NSPredicate(format: "isAddedByUser == true and inHistory == false")).map{$0}
         shuffledWords = (words + Functions.getRandomWords(on: 5)).shuffled()
@@ -105,6 +106,10 @@ extension MainViewController: KolodaViewDelegate {
         refreshButton.isHidden = false
         refreshButton.isEnabled = true
     }
+    
+    func kolodaSwipeThresholdRatioMargin(_ koloda: KolodaView) -> CGFloat? {
+        return CGFloat(0.3)
+    }
 }
 
 
@@ -142,6 +147,7 @@ extension MainViewController: KolodaViewDataSource {
     func kolodaShouldApplyAppearAnimation(_ koloda: KolodaView) -> Bool {
         return true
     }
+    
 
 }
 
