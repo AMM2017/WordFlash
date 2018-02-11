@@ -1,5 +1,15 @@
 
+import paper_onboarding
+import SwiftyJSON
+import Alamofire
 import UIKit
+import RealmSwift
+
+//global
+var realm: Realm = try! Realm()
+let defaults:UserDefaults = UserDefaults.standard
+var allWords: Trie = Trie()
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -8,7 +18,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIApplication.shared.statusBarStyle = .lightContent
-        Dictionary.sharedInstance
+        let dict = Dictionary.sharedInstance
+        for word in dict.words {
+            allWords.insert(word: word)
+        }
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        
+        
+        var initialViewController = sb.instantiateViewController(withIdentifier: "Onboarding")
+        
+        if defaults.bool(forKey: "ShowedOnboarding") {
+            initialViewController = sb.instantiateViewController(withIdentifier: "Main")
+        }
+        
+        window?.rootViewController = initialViewController
+        window?.makeKeyAndVisible()
+        
         return true
         
     }
